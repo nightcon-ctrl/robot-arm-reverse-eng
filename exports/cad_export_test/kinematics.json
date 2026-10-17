@@ -1,0 +1,77 @@
+{
+ "units": "mm",
+ "frame": "origin on the yaw axis at the plate top; X right (front view), Y away from camera, Z up",
+ "pose": {
+  "yaw_deg": 15,
+  "upper_deg": 125.3,
+  "forearm_deg": 199.9
+ },
+ "joints": [
+  {
+   "name": "yaw",
+   "axis": [
+    0,
+    0,
+    1
+   ],
+   "origin": [
+    0,
+    0,
+    0
+   ],
+   "angle": "CCW seen from above",
+   "moves": [
+    "03_yaw_disc",
+    "04_base_enclosure",
+    "05_yaw_actuator",
+    "06_upright",
+    "07_shoulder_mount",
+    "08_shoulder_flange"
+   ]
+  },
+  {
+   "name": "shoulder",
+   "axis": [
+    0,
+    1,
+    0
+   ],
+   "origin_in_yaw_frame": [
+    0,
+    0,
+    98.7
+   ],
+   "angle": "from +X toward +Z; part frame is rotated by -angle about +Y",
+   "moves": [
+    "09_shoulder_actuator",
+    "10_connector_beam",
+    "11_beam_standoff",
+    "12_elbow_actuator"
+   ]
+  },
+  {
+   "name": "elbow",
+   "axis": [
+    0,
+    1,
+    0
+   ],
+   "origin_in_shoulder_frame": [
+    102.0,
+    0,
+    0
+   ],
+   "angle": "absolute forearm angle, same convention (not relative to the upper arm)",
+   "moves": [
+    "13_elbow_flange",
+    "14_forearm",
+    "15_elbow_mount"
+   ]
+  }
+ ],
+ "link_lengths": {
+  "L1": 102.0,
+  "L2": 102.0
+ },
+ "limits": "not known from the annotations"
+}

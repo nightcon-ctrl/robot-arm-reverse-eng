@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Robot manipulator – granular wireframe (v2)</title>
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#f6f6f3; --panel:#ffffff; --ink:#1c1d21; --muted:#667; --line:#dcdde2;
+  --meas:#0b7285; --assumed:#8a8f9c; --sel:#e8590c; --grid:#c4c7cf; --canvas:#fbfbfa; --chip:#eef1f4;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121316; --panel:#1b1d22; --ink:#e8e9ec; --muted:#9a9eab; --line:#2e3037;
+    --meas:#3bc9db; --assumed:#7d8392; --sel:#ff922b; --grid:#3a3d46; --canvas:#16181c; --chip:#262932;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121316; --panel:#1b1d22; --ink:#e8e9ec; --muted:#9a9eab; --line:#2e3037;
+  --meas:#3bc9db; --assumed:#7d8392; --sel:#ff922b; --grid:#3a3d46; --canvas:#16181c; --chip:#262932;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1280px;margin:0 auto;padding:16px}
+h1{font-size:20px;margin:0 0 4px}
+h2{font-size:15px;margin:0 0 8px}
+.sub{margin:0 0 14px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:14px;align-items:start}
+@media (max-width:900px){.grid{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+.viewer{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px}
+.toolbar,.poses{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:8px}
+.toolbar .lbl,.poses .lbl{color:var(--muted);font-size:12px;margin-right:2px}
+button{font:inherit;border:1px solid var(--line);background:var(--chip);color:var(--ink);border-radius:7px;padding:5px 10px;cursor:pointer}
+button:hover{border-color:var(--meas)}
+button.on{border-color:var(--sel);color:var(--sel)}
+canvas{display:block;width:100%;aspect-ratio:4/3;min-height:360px;background:var(--canvas);border-radius:8px;
+  cursor:grab;touch-action:none}
+canvas:active{cursor:grabbing}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:8px 2px;color:var(--muted);font-size:12px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{display:inline-block;width:26px;height:0;border-top:2px solid var(--meas)}
+.sw.d{border-top:2px dashed var(--assumed)}
+.sw.s{border-top:3px solid var(--sel)}
+.sliders{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:6px}
+@media (max-width:600px){.sliders{grid-template-columns:1fr}}
+.sliders label{display:block;font-size:12px;color:var(--muted)}
+.sliders input{width:100%}
+.sliders b{color:var(--ink);font-weight:600}
+dl{margin:8px 0 0;display:grid;grid-template-columns:auto 1fr;gap:4px 10px}
+dt{color:var(--muted)}
+dd{margin:0}
+dd small{display:block;color:var(--muted)}
+.chip{display:inline-block;font-size:11px;padding:1px 8px;border-radius:99px;background:var(--chip)}
+.chip.meas{color:var(--meas)} .chip.assumed{color:var(--muted)}
+.muted{color:var(--muted)}
+.part{display:flex;align-items:center;gap:8px;padding:2px 0}
+.part button{flex:1;text-align:left;border:0;background:none;padding:2px 4px;border-radius:5px}
+.part button.on{background:var(--chip);color:var(--sel)}
+.pgrp{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:8px 0 2px}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:720px}
+th,td{text-align:left;padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:600}
+tr.grp td{background:var(--chip);font-weight:600;font-size:12px;letter-spacing:.02em}
+td.n{white-space:nowrap}
+.notes ul{margin:6px 0 0;padding-left:18px}
+.notes li{margin:4px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Robot manipulator — granular wireframe (v2)</h1>
+  <p class="sub">Rebuilt from the detailed annotations: bolt patterns, slots, actuator ring stacks, enclosure cage, joint mounts and the depth layering. One shared scale (3.131 px/mm). Drag to orbit, scroll to zoom, click a part for its dimensions and sources.</p>
+
+  <div class="grid">
+    <section class="viewer">
+      <div class="toolbar">
+        <span class="lbl">Camera</span>
+        <button data-view="A">Front (frames 1·3·4)</button>
+        <button data-view="B">Side (frame 2)</button>
+        <button data-view="T">Top</button>
+        <button data-view="3D">3D</button>
+      </div>
+      <div class="poses">
+        <span class="lbl">Pose</span>
+        <button data-pose="f4">Frame 4 · t21.72</button>
+        <button data-pose="f1">Frame 1 · t5.37</button>
+        <button data-pose="f2">Frame 2 · t14.25</button>
+      </div>
+      <canvas id="cv" aria-label="3D wireframe of the robot manipulator on its optical plate"></canvas>
+      <div class="legend">
+        <span><i class="sw"></i>from your annotations</span>
+        <span><i class="sw d"></i>assumed / carried over</span>
+        <span><i class="sw s"></i>selected</span>
+      </div>
+      <div class="sliders">
+        <label>Base yaw <b id="vYaw">0°</b><input id="sYaw" type="range" min="-180" max="180" step="0.5" value="0"></label>
+        <label>Upper arm angle <b id="vU">130°</b><input id="sU" type="range" min="0" max="360" step="0.5" value="130"></label>
+        <label>Forearm angle <b id="vF">250°</b><input id="sF" type="range" min="0" max="360" step="0.5" value="250"></label>
+      </div>
+    </section>
+
+    <aside>
+      <div class="card" id="info"></div>
+      <div class="card">
+        <h2>Parts</h2>
+        <div id="parts"></div>
+        <label class="part"><input type="checkbox" id="showAssumed" checked> <span>Show assumed parts</span></label>
+      </div>
+    </aside>
+  </div>
+
+  <section class="card">
+    <h2>Consolidated measurements (mm unless stated)</h2>
+    <div class="tablewrap"><table id="tbl"></table></div>
+  </section>
+
+  <section class="card notes">
+    <h2>What changed from the first model</h2>
+    <ul>
+      <li><b>The “turret” was two different things.</b> The 61.6 mm width was the Ø59 movable disc, not the enclosure. The enclosure is a 44 mm square cage: a solid 19 mm block with four 6.2 mm corner posts rising to 41.4 mm, chamfered on the vertical edges, with open windows on every face.</li>
+      <li><b>Both joints share one actuator stack</b> (housing Ø39.5, harmonic-drive step Ø36.5, recess Ø29, bore Ø12.3, 18.1 mm long) plus a Ø58 four-screw flange behind it. At the shoulder the flange is fixed to the base; at the elbow it carries the forearm.</li>
+      <li><b>Link ends carry a six-screw hub pattern</b> (R10.5, screws at link angle ± 30°) and the tip has a Ø12.3 bore with six R10.6 aux holes. Slots are 5.8 mm wide, not 5.1.</li>
+      <li><b>Link length</b> L1 = L2 = 102.0 mm (was 99.4 / 103.8 at a different scale). <b>Shoulder axis</b> is higher: tilt-corrected, the camera looks down 6.5°, so near-camera features read low.</li>
+      <li><b>Depth stack is now evidence-based</b> (frame 2 horizontal axis, cross-checked by the frame 1 / frame 4 parallax), and it differs from the old assumption: the connector beam is on the camera side of both actuators and the forearm sits behind the elbow actuator.</li>
+    </ul>
+  </section>
+
+  <section class="card notes">
+    <h2>Read this before trusting a number</h2>
+    <ul>
+      <li><b>Built from annotation names and coordinates, not from the frame images.</b> Where a polygon’s meaning was ambiguous I chose the reading that agreed with other evidence and listed it below. Check the flagged parts against the frames.</li>
+      <li><b>Assumed:</b> the optical plate and counterbores (carried over), the yaw actuator, mount X-widths (41 / 40), the upright’s Y-extent and the simplified top, and the 5.7 mm beam standoff at the elbow.</li>
+      <li><b>Unresolved:</b> a 2.5 mm gap between the spacer top and the disc underside; the elbow mount’s attachment (modelled on the forearm); the frame-3 pose (elbow 63.9 mm above the shoulder gives an upper arm of 39° or 141°, so it is left out).</li>
+      <li><b>One scale for every frame.</b> The base enclosure’s front face measures 38.5–40.5 mm across frames 1–4, a ≈5 % spread, so treat off-plane features as ±2–3 %.</li>
+    </ul>
+  </section>
+</div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const rad=Math.PI/180;
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const f1=v=>v.toFixed(1), f2=v=>v.toFixed(2);
+
+/* ---------- parameters derived from the annotations (mm) ---------- */
+const D={"puckD": 39.56, "puckH": 15.43, "discZ0": 17.95, "discZ1": 22.36, "discT": 4.41, "discR": 29.38, "robotX": 125.0, "plateW": 200.0, "plateT0": 12.7, "holeD": 6.0, "cbD": 10.5, "encW": 43.75, "encFace": 39.74, "encC": 2.0, "encH": 41.38, "encPocket": 31.37, "encFloor": 18.96, "yawD": 30.0, "enclZ0": 22.36, "upX0": 29.77, "upT": 5.2, "upTop": 107.4, "boreR": 6.13, "roundR": 13.6, "housR": 19.73, "partR": 18.26, "innerR": 14.49, "actL": 18.09, "flangeR": 29.0, "eScrRb": 25.5, "sScrRb": 25.4, "eScrR": 3.74, "sScrR": 3.34, "screwL": 4.11, "hubRb": 10.5, "hubRh": 2.81, "beamT": 5.12, "beamW": 27.2, "L1": 102.0, "L2": 102.0, "slotUpC": 64.7, "slotR": 2.91, "slotUpS0": 18.6, "slotFB": 82.8, "slotFA": 20.5, "tipRb": 10.55, "tipR": 1.81, "smH": 43.9, "smY": 40.91, "smPocketH": 31.35, "smPocketD": 22.55, "emH": 39.6, "emY": 40.0, "emPocketH": 28.1, "emPocketD": 24.0, "smWx": 41.0, "emWx": 40.0, "zS": 98.7, "beY0": -48.7, "beY1": -43.58, "saY0": -43.58, "saY1": -25.49, "sfY0": -25.49, "sfY1": -21.08, "smY0": -21.08, "smY1": 19.83, "eaY1": -19.7, "eaY0": -37.79, "boY0": -43.58, "boY1": -37.79, "efY0": -19.7, "efY1": -15.29, "foY0": -15.29, "foY1": -10.17, "emY0": -10.17, "emY1": 29.83, "upY0": -25.49, "upY1": 19.83};
+const ROWS=[["Scale and camera"], ["Scale, all frames", "3.131 px/mm", 1, "—", "frame 2: ‘table hole pitch’ 78.27 px = 25 mm (shared by every frame)"], ["Camera tilt (from the puck’s top/bottom ellipse)", "6.5°", 1, "—", "F1 ‘rotatable plate spacer’: bottom arc sits 2.2 mm below the tangent points of a Ø39.6 cylinder"], ["z = 0 reference", "plate top at the yaw axis", 1, "—", "F1 spacer polygon, bottom-left vertex (tangent plane, depth 0)"], ["Base: spacer, plate, enclosure"], ["Spacer (puck) Ø", "39.6", 1, "—", "F1 ‘rotatable plate spacer from baseplate’ polygon width"], ["Spacer height", "15.4", 1, "—", "F1 same polygon, left silhouette edge (tangent plane)"], ["Movable disc thickness", "4.4", 1, "—", "F1 line ‘thickness of circular movable plate’ (4.4 mm)"], ["Movable disc z range", "17.9 – 22.4", 1, "—", "same line, tilt-corrected; leaves a 2.5 mm gap above the spacer (unexplained)"], ["Movable disc radius", "29.4", 2, "29.4–29.4", "F1 ‘circular movable plate… top’ and F4 plate polygon left edge, measured from the spacer/enclosure centre line"], ["Optical plate", "200 × 200 × 12.7", 1, "—", "carried over, not re-measured (8 × 8 holes at 25 mm; thickness, hole Ø and robot position assumed)"], ["Counterbore Ø", "10.5", 1, "—", "old frame-4 click (33 px) re-scaled; not in the new annotations"], ["Enclosure plan width (incl. chamfers)", "43.8", 3, "43.0–44.6", "F4 polygons 3+4+5, F3 0+1+2, F2 0+1+2 (front face + both chamfers)"], ["Enclosure flat front face width", "39.7", 3, "39.0–40.5", "F2, F3, F4 ‘front profile of base enclosure’"], ["Vertical-edge chamfer", "2.0", 1, "—", "(plan width − flat face) / 2"], ["Enclosure height", "41.4", 4, "41.1–41.8", "front-profile polygons, F1–F4"], ["Cage window width (between posts)", "31.4", 3, "30.8–32.0", "front-profile notch, F2–F4"], ["Solid base block height (notch floor)", "19.0", 4, "18.8–19.1", "front-profile notch floor, F1–F4"], ["Yaw actuator Ø × height", "30 × 21.9", 1, "—", "ASSUMED: fits the 31 mm window; old frame-4 click gave Ø30.4 (not in the new annotations)"], ["Upright strip: X start, thickness", "29.8, 5.2", 1, "—", "F4 polygon 12 right-hand strip (touches the disc edge; thickness ≈ disc thickness)"], ["Upright top", "107.4", 1, "—", "F1 ‘elevated arm beam’ + F4 polygon 11 top edge, back-edge correction; Y-extent assumed"], ["Joint hardware (identical at shoulder and elbow)"], ["Bore radius", "6.13", 7, "5.83–6.45", "F1 ‘inner joint’ ×3, ‘tip main hole’; F4 three unnamed small circles"], ["Link end radius (beam half-width)", "13.60", 6, "13.23–13.90", "F1 tip end-effector rounding, connector joint radii; F4 three r≈13.6 circles"], ["Actuator housing radius", "19.73", 2, "19.70–19.77", "F1 ‘tip beam actuator housing’, shoulder ring 55"], ["Harmonic-drive step radius", "18.26", 2, "18.19–18.33", "F1 ‘actuator part (probably a harmonic drive)’, shoulder ring 54"], ["Inner recess radius", "14.49", 1, "—", "F1 ‘actuator part inner radius’"], ["Actuator axial length", "18.1", 2, "17.9–18.3", "F2 ‘height of actuator’ 17.9, ‘depth of joint 2 actuator housing’ 18.3"], ["Flange (‘screwplate’) radius", "29.00", 4, "28.58–29.33", "F1 ‘tip beam joint screwplate radius’, shoulder ring 56; F4 two r≈29 circles"], ["Elbow flange screw radius (×4)", "3.74", 4, "3.66–3.85", "F1 ‘tip beam joint screwplate screw 1–4’"], ["Shoulder flange screw radius (×4)", "3.34", 4, "3.21–3.41", "F1 unnamed circles 44–47 (square pattern)"], ["Flange screw bolt-circle radius", "elbow 25.5, shoulder 25.4", 1, "—", "centroid fit of the four screws; both at 45° to the link / base axes"], ["Flange screw head height", "4.1", 1, "—", "F2 ‘depth of tip screwplate screws’"], ["Hub screw radius (×6)", "2.81", 12, "2.59–2.96", "F1 ‘connector to supporting beam screw 1–6’ + shoulder circles 48–53"], ["Hub bolt-circle radius, 6 screws", "10.6 (elbow) / 10.4 (shoulder)", 1, "—", "centroid fit; screws sit at link angle ± 30° + 60°·k"], ["Beam thickness", "5.12", 2, "5.07–5.16", "F2 ‘depth of beam connecting joint 1 with joint 2’, ‘depth of tip beam’"], ["Links, slots, tip"], ["Link width", "27.2", 2, "—", "2 × end radius; F1 ‘tip beam top edge to bottom edge height’ 27.1 agrees"], ["Upper arm L1 (axis to axis)", "101.8", 4, "101.2–102.6", "F1+F4: flange centres and housing-ring centres"], ["Forearm L2 (axis to tip hole)", "102.1", 4, "99.8–105.5", "same, to the tip main hole (frame 1 is yawed ≈15°, so ±2 %)"], ["L1 = L2 used in the model", "102.0", 8, "—", "mean of all eight; the two links are equal within the scatter"], ["Slot end radius", "2.91", 3, "2.85–3.02", "F1 ‘connector beam cutout rounding radius’ ×2, ‘tip beam cutout rounding radius’"], ["Upper-arm slot, centre to centre", "64.7", 1, "—", "F1 ‘connector beam cutout rounding radius’ (upper) → ‘…lower’; edge lines read 65.5 / 64.5"], ["Upper-arm slot starts at", "18.6 from each joint", 1, "—", "measured 19.4 from the elbow and 18.6 from the shoulder; centred"], ["Forearm slot centres from the elbow", "20.5 and 82.8", 1, "—", "F1: tip-side centre is 19.2 from the tip hole; line to the ‘joint actuator edge’ = 62.3"], ["Tip aux hole radius (×6)", "1.81", 6, "1.68–1.91", "F1 ‘tip aux hole 1–6’"], ["Tip aux-hole bolt-circle radius", "10.55", 1, "—", "distance from ‘tip main hole’ centre; holes at link angle ± 30° + 60°·k"], ["Joint mounts (C-profile boxes)"], ["Shoulder mount height (face + chamfer bands)", "43.9", 2, "43.8–44.0", "F2 polygons 4+6+7 and F3 polygons 3+4+5 (front face plus top and bottom chamfer bands)"], ["Shoulder mount Y-width", "40.9", 2, "40.9–40.9", "F2 ‘front profile of 1st joint actuator mount’, F3 ‘…joint 1 actuator enclosure’"], ["Shoulder mount pocket height", "31.4", 2, "31.3–31.4", "C-notch of F2 polygon 4 and F3 polygon 3"], ["Shoulder mount pocket depth", "22.5", 2, "21.9–23.2", "C-notch of F2 polygon 4 and F3 polygon 3"], ["Elbow mount H × Y-width, pocket H × D", "39.6 × 40.0, 28.1 × 24.0", 1, "—", "F2 ‘front profile of actuator 2 enclosure’ (45.4 wide incl. the forearm plate, so 5.4 trimmed) + chamfer band 2.9"], ["Mount X-widths", "41.0 / 40.0", 1, "—", "ASSUMED: no frame shows the X face of these boxes"], ["Heights and angles"], ["Shoulder axis height", "98.7", 4, "97.8–99.8", "F1+F4 ring/flange centres, corrected for camera tilt at each layer’s depth (was 94.8 uncorrected, old scale)"], ["Pose, frame 4 (t21.72)", "upper 130.5°, forearm 249.7°", 1, "—", "angles of the flange-centre → flange-centre / tip-hole vectors; arm plane square to the camera"], ["Pose, frame 1 (t5.37)", "upper 125.3°, forearm 199.9°, base yaw ≈15°", 1, "—", "same, with x divided by cos 15°; yaw from the enclosure (front face 38.5 of 44.0 wide, left side face visible)"], ["Pose, frame 2 (t14.25)", "upper 90°, forearm 270°", 1, "—", "elbow box centre is 103.3 mm above the shoulder box centre ≈ L1; forearm hangs below the elbow"], ["Depth stack (Y), from frame 2"], ["Connector beam", "-48.7 … -43.6", 1, "5.1 thick", "F2 ‘depth of beam connecting joint 1 with joint 2’"], ["Shoulder actuator", "-46.3 … -28.4", 1, "17.9 thick", "F2 ‘height of actuator’"], ["Elbow actuator housing", "-38.0 … -19.7", 1, "18.3 thick", "F2 ‘depth of joint 2 actuator housing’"], ["Elbow flange screws", "-22.4 … -18.3", 1, "4.1 thick", "F2 ‘depth of tip screwplate screws’"], ["Forearm (tip beam)", "-16.3 … -11.2", 1, "5.2 thick", "F2 ‘depth of tip beam’"], ["Shoulder mount box", "-23.1 … 17.8", 1, "—", "F2 front polygon of the 1st joint actuator mount"], ["Base enclosure", "-19.5 … 19.5", 1, "—", "F2 front polygon (defines Y = 0 at its centre)"], ["Check: shoulder housing front vs. parallax", "−46.3 vs ≈ −46", 1, "—", "F1 vs F4 shift of the shoulder ring (≈11 mm at 15° yaw) puts it ≈46 mm toward the camera: independent of frame 2"], ["Layout used (Y, camera at −Y)", "beam −48.7…−43.6 | shoulder actuator …−25.5 | flange …−21.1 | mount …19.9", 1, "—", "stacked without overlap; ≤ 2.7 mm shifted from the raw frame-2 values"], ["Elbow side", "boss -43.6…-37.8 | actuator …-19.7 | flange …-15.3 | forearm …-10.2", 1, "—", "boss = 5.7 mm standoff between the beam and the elbow housing (ASSUMED)"]];
+const POSES={"f1": {"yaw": 15, "u": 125.3, "f": 199.9}, "f2": {"yaw": 0, "u": 90, "f": 270}, "f4": {"yaw": 0, "u": 130.5, "f": 249.7}};
+POSES.f2.view='B'; POSES.f1.view='A'; POSES.f4.view='A';
+
+/* ---------- segment helpers: a segment is [[x,y,z],[x,y,z]] ---------- */
+function box(x0,x1,y0,y1,z0,z1){
+  const p=[];for(const x of[x0,x1])for(const y of[y0,y1])for(const z of[z0,z1])p.push([x,y,z]);
+  return[[0,1],[2,3],[4,5],[6,7],[0,2],[1,3],[4,6],[5,7],[0,4],[1,5],[2,6],[3,7]].map(([i,j])=>[p[i],p[j]]);
+}
+function circZ(cx,cy,z,r,n=40){const s=[];for(let i=0;i<n;i++){const a=i/n*2*Math.PI,b=(i+1)/n*2*Math.PI;
+  s.push([[cx+r*Math.cos(a),cy+r*Math.sin(a),z],[cx+r*Math.cos(b),cy+r*Math.sin(b),z]]);}return s;}
+function cylZ(cx,cy,z0,z1,r,n=40,rails=8){const s=[...circZ(cx,cy,z0,r,n),...circZ(cx,cy,z1,r,n)];
+  for(let k=0;k<rails;k++){const a=k/rails*2*Math.PI;s.push([[cx+r*Math.cos(a),cy+r*Math.sin(a),z0],[cx+r*Math.cos(a),cy+r*Math.sin(a),z1]]);}return s;}
+function circY(cx,cz,y,r,n=40){const s=[];for(let i=0;i<n;i++){const a=i/n*2*Math.PI,b=(i+1)/n*2*Math.PI;
+  s.push([[cx+r*Math.cos(a),y,cz+r*Math.sin(a)],[cx+r*Math.cos(b),y,cz+r*Math.sin(b)]]);}return s;}
+function cylY(cx,cz,y0,y1,r,n=40,rails=8){const s=[...circY(cx,cz,y0,r,n),...circY(cx,cz,y1,r,n)];
+  for(let k=0;k<rails;k++){const a=k/rails*2*Math.PI;s.push([[cx+r*Math.cos(a),y0,cz+r*Math.sin(a)],[cx+r*Math.cos(a),y1,cz+r*Math.sin(a)]]);}return s;}
+/* polygon prisms: P in (x,y) extruded along z, or P in (y,z) extruded along x */
+function prismZ(P,z0,z1){const s=[],n=P.length;for(let i=0;i<n;i++){const a=P[i],b=P[(i+1)%n];
+  s.push([[a[0],a[1],z0],[b[0],b[1],z0]],[[a[0],a[1],z1],[b[0],b[1],z1]],[[a[0],a[1],z0],[a[0],a[1],z1]]);}return s;}
+function prismX(P,x0,x1){const s=[],n=P.length;for(let i=0;i<n;i++){const a=P[i],b=P[(i+1)%n];
+  s.push([[x0,a[0],a[1]],[x0,b[0],b[1]]],[[x1,a[0],a[1]],[x1,b[0],b[1]]],[[x0,a[0],a[1]],[x1,a[0],a[1]]]);}return s;}
+const mapSegs=(S,f)=>S.map(([a,b])=>[f(a),f(b)]);
+function chRect(w,c){const h=w/2;return[[-h+c,-h],[h-c,-h],[h,-h+c],[h,h-c],[h-c,h],[-h+c,h],[-h,h-c],[-h,-h+c]];}
+/* C-profile in (y,z): web on the -y side, pocket open toward +y */
+function cPts(ya,yb,web,H,ph,zc){return[[ya,zc-H/2],[yb,zc-H/2],[yb,zc-ph/2],[ya+web,zc-ph/2],[ya+web,zc+ph/2],[yb,zc+ph/2],[yb,zc+H/2],[ya,zc+H/2]];}
+/* stadium outline in the X–Z plane: starts at O, runs length L along angle th, half-width r, at depth y */
+function stadPts(O,th,L,r,y,n=14){
+  const U=[Math.cos(th),Math.sin(th)],V=[-Math.sin(th),Math.cos(th)];
+  const P=(u,v)=>[O[0]+u*U[0]+v*V[0],y,O[2]+u*U[1]+v*V[1]];
+  const pts=[];
+  for(let i=0;i<=n;i++){const a=Math.PI/2+Math.PI*i/n;pts.push(P(r*Math.cos(a),r*Math.sin(a)));}
+  for(let i=0;i<=n;i++){const a=-Math.PI/2+Math.PI*i/n;pts.push(P(L+r*Math.cos(a),r*Math.sin(a)));}
+  return pts;
+}
+const loop=pts=>pts.map((p,i)=>[p,pts[(i+1)%pts.length]]);
+function linkSegs(O,th,L,r,y0,y1,n=14){
+  const a=stadPts(O,th,L,r,y0,n),b=stadPts(O,th,L,r,y1,n),s=[...loop(a),...loop(b)];
+  for(const i of[0,n,n+1,2*n+1])s.push([a[i],b[i]]);return s;
+}
+/* slot with its first end-circle centre at u0+r along the link, straight length len-w */
+function slotSegs(O,th,u0,len,w,y){
+  const U=[Math.cos(th),Math.sin(th)],r=w/2;
+  const Oc=[O[0]+(u0+r)*U[0],0,O[2]+(u0+r)*U[1]];
+  return loop(stadPts(Oc,th,len-w,r,y,8));
+}
+function boltY(cx,cz,y,rb,rh,count,phaseDeg,n=12){const s=[];
+  for(let k=0;k<count;k++){const a=(phaseDeg+360*k/count)*rad;s.push(...circY(cx+rb*Math.cos(a),cz+rb*Math.sin(a),y,rh,n));}return s;}
+function screwsY(cx,cz,y0,y1,rb,rh,count,phaseDeg){const s=[];
+  for(let k=0;k<count;k++){const a=(phaseDeg+360*k/count)*rad;s.push(...cylY(cx+rb*Math.cos(a),cz+rb*Math.sin(a),y0,y1,rh,12,2));}return s;}
+function actSegs(c,y0,y1){
+  return[...cylY(c[0],c[2],y0,y1,D.housR,56,12),...circY(c[0],c[2],y0,D.partR,48),
+         ...circY(c[0],c[2],y0,D.innerR,40),...cylY(c[0],c[2],y0,y1,D.boreR,16,4)];
+}
+function flangeSegs(c,y0,y1,phase,rh,rb){
+  return[...cylY(c[0],c[2],y0,y1,D.flangeR,64,12),...cylY(c[0],c[2],y0,y1,D.boreR,16,4),
+         ...screwsY(c[0],c[2],y0-D.screwL,y0,rb,rh,4,phase)];
+}
+
+/* ---------- part metadata ---------- */
+const src=(a)=>a;
+const META=[
+ {id:'plate',g:'Base',name:'Optical plate',conf:'assumed',rot:false,faint:false,info:[
+   ['Size','200 × 200 × 12.7','carried over; 8 × 8 holes at 25 mm'],
+   ['Robot axis','125 from left edge','carried over; depth position assumed centred']]},
+ {id:'holes',g:'Base',name:'Plate holes (8 × 8)',conf:'assumed',rot:false,faint:true,info:[
+   ['Grid','8 × 8 at 25 pitch, 12.5 margin','counted in the frames'],['Hole Ø','6','not measurable']]},
+ {id:'cbores',g:'Base',name:'Mounting counterbores',conf:'assumed',rot:false,faint:false,info:[
+   ['Ø',f1(D.cbD),'old frame-4 click re-scaled; not in the new annotations']]},
+ {id:'puck',g:'Base',name:'Spacer (fixed)',conf:'meas',rot:false,faint:false,info:[
+   ['Ø',f1(D.puckD),'F1 ‘rotatable plate spacer from baseplate’ polygon'],
+   ['Height',f1(D.puckH),'same polygon, left silhouette edge'],
+   ['Gap to disc',f1(D.discZ0-D.puckH),'unexplained: bearing or shim not annotated']]},
+ {id:'disc',g:'Base',name:'Movable disc (yaw)',conf:'meas',rot:true,faint:false,info:[
+   ['Ø',f1(2*D.discR),'F1 / F4 plate polygons, left edge to the spacer centre line'],
+   ['Thickness',f1(D.discT),'F1 line ‘thickness of circular movable plate’'],
+   ['z range',f1(D.discZ0)+' – '+f1(D.discZ1),'tilt-corrected']]},
+ {id:'encl',g:'Base',name:'Enclosure cage',conf:'meas',rot:true,faint:false,info:[
+   ['Plan',f1(D.encW)+' square','front face '+f1(D.encFace)+' + two '+f1(D.encC)+' chamfers (F2–F4)'],
+   ['Height',f1(D.encH),'n=4 front-profile polygons'],
+   ['Solid block',f1(D.encFloor),'notch floor of the front profile'],
+   ['Window width',f1(D.encPocket),'between the corner posts; same on all four faces (side polygons show the same notch)']]},
+ {id:'yaw',g:'Base',name:'Yaw actuator (in cage)',conf:'assumed',rot:true,faint:false,info:[
+   ['Ø × height','30.0 × '+f1(D.encH-D.encFloor-0.5),'assumed to fit the window']]},
+ {id:'upright',g:'Shoulder',name:'Upright (elevated arm)',conf:'assumed',rot:true,faint:false,info:[
+   ['Thickness',f1(D.upT),'F4 polygon 12: strip on the right edge of the disc'],
+   ['X start',f1(D.upX0),'touches the disc edge'],
+   ['Top',f1(D.upTop),'F1 ‘elevated arm beam’; the leaf-shaped top is simplified'],
+   ['Y extent','assumed','spans the flange and mount Y range']]},
+ {id:'smount',g:'Shoulder',name:'Shoulder mount (C-box)',conf:'assumed',rot:true,faint:false,info:[
+   ['Y-width × height',f1(D.smY)+' × '+f1(D.smH),'F2 / F3 front polygons + chamfer bands'],
+   ['Pocket height × depth',f1(D.smPocketH)+' × '+f1(D.smPocketD),'C-notch, opening toward +Y'],
+   ['X-width',f1(D.smWx),'assumed']]},
+ {id:'sflange',g:'Shoulder',name:'Shoulder flange + screws',conf:'meas',rot:true,faint:false,info:[
+   ['Ø',f1(2*D.flangeR),'n=4 flange circles'],['Thickness',f1(D.discT),'taken equal to the disc'],
+   ['Screws','4 × R'+f2(D.sScrR)+' on R'+f1(D.sScrRb),'F1 circles 44–47; at 45° to the axes'],
+   ['Fixed to','the base','inferred from the depth order']]},
+ {id:'sact',g:'Shoulder',name:'Shoulder actuator',conf:'meas',rot:true,faint:false,info:[
+   ['Housing Ø',f1(2*D.housR),'F1 ring 55 / elbow housing'],['Step Ø / recess Ø',f1(2*D.partR)+' / '+f1(2*D.innerR),'harmonic-drive rings'],
+   ['Bore Ø',f1(2*D.boreR),'n=7'],['Length',f1(D.actL),'F2 ‘height of actuator’ 17.9 / elbow 18.3']]},
+ {id:'upper',g:'Arm',name:'Connector beam (upper arm)',conf:'meas',rot:true,faint:false,info:[
+   ['Axis to axis',f1(D.L1),'n=8 with L2; ±1.5'],['Width / thickness',f1(D.beamW)+' / '+f2(D.beamT),'F1 / F2'],
+   ['Slot',f1(D.slotUpC)+' c-c, w '+f1(2*D.slotR),'starts '+f1(D.slotUpS0)+' from each joint'],
+   ['Hub screws','6 × R'+f2(D.hubRh)+' on R'+f1(D.hubRb),'at link angle ± 30° + 60°k, both ends'],
+   ['Bore Ø',f1(2*D.boreR),'both ends']]},
+ {id:'boss',g:'Arm',name:'Beam standoff (elbow)',conf:'assumed',rot:true,faint:false,info:[
+   ['Length',f1(D.boY1-D.boY0),'fills the gap between the beam and the elbow housing'],['Ø',f1(D.beamW),'assumed']]},
+ {id:'eact',g:'Elbow',name:'Elbow actuator',conf:'meas',rot:true,faint:false,info:[
+   ['Housing Ø',f1(2*D.housR),'F1 ‘tip beam actuator housing’'],['Length',f1(D.actL),'F2 ‘depth of joint 2 actuator housing’'],
+   ['Fixed to','the connector beam','housing front is on the beam side']]},
+ {id:'eflange',g:'Elbow',name:'Elbow flange + screws',conf:'meas',rot:true,faint:false,info:[
+   ['Ø',f1(2*D.flangeR),'F1 ‘tip beam joint screwplate radius’'],
+   ['Screws','4 × R'+f2(D.eScrR)+' on R'+f1(D.eScrRb),'F1 ‘screwplate screw 1–4’, at link angle ± 45°, ± 135°'],
+   ['Screw head height',f1(D.screwL),'F2 ‘depth of tip screwplate screws’']]},
+ {id:'fore',g:'Elbow',name:'Tip beam (forearm)',conf:'meas',rot:true,faint:false,info:[
+   ['Axis to tip hole',f1(D.L2),'n=4; frame 1 is yawed'],['Width / thickness',f1(D.beamW)+' / '+f2(D.beamT),'F1 / F2'],
+   ['Slot centres',f1(D.slotFA)+' and '+f1(D.slotFB)+' from the elbow','F1 slot rounding + line to the actuator edge'],
+   ['Tip bore Ø',f1(2*D.boreR),'F1 ‘tip main hole’'],
+   ['Tip aux holes','6 × R'+f2(D.tipR)+' on R'+f2(D.tipRb),'at link angle ± 30° + 60°k']]},
+ {id:'emount',g:'Elbow',name:'Elbow mount (C-box)',conf:'assumed',rot:true,faint:false,info:[
+   ['Height × Y-width',f1(D.emH)+' × '+f1(D.emY),'F2 ‘front profile of actuator 2 enclosure’ less the forearm plate'],
+   ['Pocket',f1(D.emPocketH)+' × '+f1(D.emPocketD),'C-notch, opening toward +Y'],
+   ['Attached to','the forearm (assumed)','it keeps its orientation between frames 2 and 3']]}
+];
+
+/* ---------- build geometry ---------- */
+const state={yaw:0,u:130.5,f:249.8,sel:null,hidden:new Set(),showAssumed:true};
+const STATIC={};
+(function(){
+  STATIC.plate=box(-D.robotX,D.plateW-D.robotX,-D.plateW/2,D.plateW/2,-D.plateT0,0);
+  const h=[];for(let i=0;i<8;i++)for(let j=0;j<8;j++)h.push(...circZ(-D.robotX+12.5+25*i,-D.plateW/2+12.5+25*j,0,D.holeD/2,10));
+  STATIC.holes=h;
+  const c=[];for(const x of[-D.robotX+25,-D.robotX+175])for(const y of[-75,75])c.push(...circZ(x,y,0,D.cbD/2,20));
+  STATIC.cbores=c;
+  STATIC.puck=cylZ(0,0,0,D.puckH,D.puckD/2,48,10);
+  STATIC.disc=cylZ(0,0,D.discZ0,D.discZ1,D.discR,64,12);
+  /* enclosure cage: chamfered block + four corner posts */
+  const zE0=D.discZ1,zF=zE0+D.encFloor,zT=zE0+D.encH,p0=D.encPocket/2,p1=D.encW/2,c2=D.encC;
+  const posts=[];
+  for(const sx of[-1,1])for(const sy of[-1,1]){
+    const P=[[p0,p0],[p1,p0],[p1,p1-c2],[p1-c2,p1],[p0,p1]].map(([x,y])=>[sx*x,sy*y]);
+    posts.push(...prismZ(P,zF,zT));
+  }
+  STATIC.encl=[...prismZ(chRect(D.encW,c2),zE0,zF),...posts];
+  STATIC.yaw=cylZ(0,0,zF,zT-0.5,D.yawD/2,40,8);
+  STATIC.upright=box(D.upX0,D.upX0+D.upT,D.upY0,D.upY1,D.discZ1,D.upTop);
+  STATIC.smount=prismX(cPts(D.smY0,D.smY1,D.smY-D.smPocketD,D.smH,D.smPocketH,D.zS),-D.smWx/2,D.smWx/2);
+  STATIC.sflange=flangeSegs([0,0,D.zS],D.sfY0,D.sfY1,45,D.sScrR,D.sScrRb);
+})();
+
+function build(){
+  const th1=state.u*rad,th2=state.f*rad;
+  const S=[0,0,D.zS];
+  const E=[D.L1*Math.cos(th1),0,S[2]+D.L1*Math.sin(th1)];
+  const T=[E[0]+D.L2*Math.cos(th2),0,E[2]+D.L2*Math.sin(th2)];
+  const r=D.beamW/2;
+  const m=Object.assign({},STATIC);
+  m.sact=actSegs(S,D.saY0,D.saY1);
+  m.eact=actSegs(E,D.eaY0,D.eaY1);
+  m.eflange=flangeSegs(E,D.efY0,D.efY1,state.f+45,D.eScrR,D.eScrRb);
+  /* connector beam: outline, slot, bores and the six-screw hubs at both ends */
+  const yU0=D.beY0,yU1=D.beY1,sw=2*D.slotR;
+  m.upper=[...linkSegs(S,th1,D.L1,r,yU0,yU1,16),
+    ...slotSegs(S,th1,D.slotUpS0-D.slotR,D.slotUpC+sw,sw,yU0),...slotSegs(S,th1,D.slotUpS0-D.slotR,D.slotUpC+sw,sw,yU1),
+    ...circY(S[0],S[2],yU0,D.boreR,20),...circY(E[0],E[2],yU0,D.boreR,20),
+    ...boltY(S[0],S[2],yU0,D.hubRb,D.hubRh,6,state.u+30),...boltY(E[0],E[2],yU0,D.hubRb,D.hubRh,6,state.u+30)];
+  m.boss=cylY(E[0],E[2],D.boY0,D.boY1,r,32,6);
+  /* forearm */
+  const yF0=D.foY0,yF1=D.foY1;
+  m.fore=[...linkSegs(E,th2,D.L2,r,yF0,yF1,16),
+    ...slotSegs(E,th2,D.slotFA-D.slotR,D.slotFB-D.slotFA+sw,sw,yF0),...slotSegs(E,th2,D.slotFA-D.slotR,D.slotFB-D.slotFA+sw,sw,yF1),
+    ...circY(E[0],E[2],yF0,D.boreR,20),...circY(T[0],T[2],yF0,D.boreR,20),
+    ...boltY(T[0],T[2],yF0,D.tipRb,D.tipR,6,state.f+30,10)];
+  /* elbow mount: C-prism in forearm-local axes, rotated about the elbow axis */
+  const cf=Math.cos(th2),sf=Math.sin(th2);
+  const emP=cPts(D.emY0,D.emY1,D.emY-D.emPocketD,D.emH,D.emPocketH,0);
+  m.emount=mapSegs(prismX(emP,-D.emWx/2,D.emWx/2),([lz,y,lx])=>[E[0]+lx*cf-lz*sf,y,E[2]+lx*sf+lz*cf]);
+  return META.map(mt=>Object.assign({},mt,{segs:m[mt.id]}));
+}
+let comps=build();
+
+/* ---------- canvas, camera ---------- */
+const cv=$('#cv'),ctx=cv.getContext('2d');
+let W=0,H=0,baseScale=2;
+const cam={az:0,el:0.11,zoom:1,tx:-30,ty:0,tz:70};
+let hit=[];
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+function resize(){
+  const r=cv.getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,2);
+  cv.width=Math.round(r.width*dpr);cv.height=Math.round(r.height*dpr);
+  ctx.setTransform(dpr,0,0,dpr,0,0);W=r.width;H=r.height;
+  baseScale=Math.min(W/300,H/230);draw();
+}
+
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  const C={meas:css('--meas'),ass:css('--assumed'),sel:css('--sel'),grid:css('--grid'),ink:css('--ink'),muted:css('--muted')};
+  const yc=Math.cos(state.yaw*rad),ys=Math.sin(state.yaw*rad);
+  const ca=Math.cos(cam.az),sa=Math.sin(cam.az),ce=Math.cos(cam.el),se=Math.sin(cam.el),sc=baseScale*cam.zoom;
+  const P=(p,rot)=>{let x=p[0],y=p[1],z=p[2];
+    if(rot){const nx=x*yc-y*ys,ny=x*ys+y*yc;x=nx;y=ny;}
+    x-=cam.tx;y-=cam.ty;z-=cam.tz;
+    const x1=x*ca-y*sa,y1=x*sa+y*ca;
+    return[W/2+sc*x1,H/2-sc*(y1*se+z*ce)];};
+  hit=[];
+  for(const c of comps){
+    if(state.hidden.has(c.id))continue;
+    if(c.conf==='assumed'&&!state.showAssumed)continue;
+    const isSel=state.sel===c.id,arr=[];
+    ctx.beginPath();
+    let minx=1e9,maxx=-1e9,miny=1e9;
+    for(const[a,b]of c.segs){
+      const p=P(a,c.rot),q=P(b,c.rot);
+      ctx.moveTo(p[0],p[1]);ctx.lineTo(q[0],q[1]);arr.push(p[0],p[1],q[0],q[1]);
+      minx=Math.min(minx,p[0],q[0]);maxx=Math.max(maxx,p[0],q[0]);miny=Math.min(miny,p[1],q[1]);
+    }
+    ctx.lineWidth=isSel?2.4:(c.faint?0.8:1.1);
+    ctx.strokeStyle=isSel?C.sel:(c.faint?C.grid:(c.conf==='meas'?C.meas:C.ass));
+    ctx.setLineDash(c.conf==='assumed'?[5,4]:[]);
+    ctx.stroke();ctx.setLineDash([]);
+    hit.push({id:c.id,arr});
+    if(isSel){ctx.fillStyle=C.sel;ctx.font='600 12px system-ui,sans-serif';ctx.textAlign='center';
+      ctx.fillText(c.name,(minx+maxx)/2,Math.max(14,miny-8));}
+  }
+  /* scale bar = one plate hole pitch */
+  const bx=W-24-25*sc,by=H-20;
+  ctx.strokeStyle=C.ink;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(bx,by);ctx.lineTo(bx+25*sc,by);
+  ctx.moveTo(bx,by-4);ctx.lineTo(bx,by+4);ctx.moveTo(bx+25*sc,by-4);ctx.lineTo(bx+25*sc,by+4);ctx.stroke();
+  ctx.fillStyle=C.muted;ctx.font='11px system-ui,sans-serif';ctx.textAlign='center';
+  ctx.fillText('25 mm (hole pitch)',bx+12.5*sc,by-8);
+  /* axis triad */
+  const ox=34,oy=H-34,len=24;
+  [['X',[1,0,0]],['Y',[0,1,0]],['Z',[0,0,1]]].forEach(([n,v])=>{
+    const x1=v[0]*ca-v[1]*sa,y1=v[0]*sa+v[1]*ca,sx=ox+len*x1,sy=oy-len*(y1*se+v[2]*ce);
+    ctx.strokeStyle=C.muted;ctx.lineWidth=1.4;ctx.beginPath();ctx.moveTo(ox,oy);ctx.lineTo(sx,sy);ctx.stroke();
+    ctx.fillStyle=C.muted;ctx.font='11px system-ui,sans-serif';ctx.textAlign='center';ctx.fillText(n,ox+(len+8)*x1,oy-(len+8)*(y1*se+v[2]*ce)+4);
+  });
+}
+
+/* ---------- interaction ---------- */
+let drag=null;
+cv.addEventListener('pointerdown',e=>{cv.setPointerCapture(e.pointerId);drag={x:e.clientX,y:e.clientY,moved:0};});
+cv.addEventListener('pointermove',e=>{
+  if(!drag)return;
+  const dx=e.clientX-drag.x,dy=e.clientY-drag.y;drag.x=e.clientX;drag.y=e.clientY;drag.moved+=Math.abs(dx)+Math.abs(dy);
+  cam.az+=dx*0.008;cam.el=clamp(cam.el+dy*0.008,-0.3,Math.PI/2);setViewActive(null);draw();
+});
+cv.addEventListener('pointerup',e=>{if(drag&&drag.moved<5)pick(e);drag=null;});
+cv.addEventListener('wheel',e=>{e.preventDefault();cam.zoom=clamp(cam.zoom*Math.exp(-e.deltaY*0.0012),0.5,6);draw();},{passive:false});
+
+function pick(e){
+  const r=cv.getBoundingClientRect(),px=e.clientX-r.left,py=e.clientY-r.top;
+  let best=null,bd=9;
+  for(const h of hit){const a=h.arr;
+    for(let i=0;i<a.length;i+=4){
+      const d=segDist(px,py,a[i],a[i+1],a[i+2],a[i+3]);
+      if(d<bd){bd=d;best=h.id;}
+    }}
+  select(best);
+}
+function segDist(px,py,x1,y1,x2,y2){
+  const dx=x2-x1,dy=y2-y1,l=dx*dx+dy*dy;let t=l?((px-x1)*dx+(py-y1)*dy)/l:0;t=clamp(t,0,1);
+  return Math.hypot(px-(x1+t*dx),py-(y1+t*dy));
+}
+
+/* ---------- UI ---------- */
+function select(id){state.sel=id;renderInfo();renderParts();draw();}
+function renderInfo(){
+  const c=META.find(m=>m.id===state.sel),el=$('#info');
+  if(!c){el.innerHTML='<h2>Select a part</h2><p class="muted" style="margin:0">Click any part in the view or in the list below to see its dimensions and how well they are supported.</p>';return;}
+  el.innerHTML='<h2>'+c.name+'</h2><span class="chip '+c.conf+'">'+(c.conf==='meas'?'from your annotations':'assumed / carried over')+'</span><dl>'+
+    c.info.map(r=>'<dt>'+r[0]+'</dt><dd>'+r[1]+' <small>'+r[2]+'</small></dd>').join('')+'</dl>';
+}
+function renderParts(){
+  const box=$('#parts');box.innerHTML='';
+  let last=null;
+  META.forEach(m=>{
+    if(m.g!==last){const h=document.createElement('div');h.className='pgrp';h.textContent=m.g;box.append(h);last=m.g;}
+    const row=document.createElement('div');row.className='part';
+    const cb=document.createElement('input');cb.type='checkbox';cb.checked=!state.hidden.has(m.id);
+    cb.setAttribute('aria-label','show '+m.name);
+    cb.addEventListener('change',()=>{cb.checked?state.hidden.delete(m.id):state.hidden.add(m.id);draw();});
+    const sw=document.createElement('i');sw.className='sw'+(m.conf==='assumed'?' d':'');sw.style.width='18px';
+    const b=document.createElement('button');b.textContent=m.name;if(state.sel===m.id)b.className='on';
+    b.addEventListener('click',()=>select(m.id));
+    row.append(cb,sw,b);box.append(row);
+  });
+}
+function setViewActive(v){document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('on',b.dataset.view===v));}
+function setPoseActive(p){document.querySelectorAll('[data-pose]').forEach(b=>b.classList.toggle('on',b.dataset.pose===p));}
+const VIEWS={A:{az:0,el:0.11},B:{az:Math.PI/2,el:0.11},T:{az:0,el:Math.PI/2},'3D':{az:-0.6,el:0.35}};
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{
+  Object.assign(cam,VIEWS[b.dataset.view],{zoom:1});setViewActive(b.dataset.view);draw();}));
+function syncSliders(){
+  $('#sYaw').value=state.yaw;$('#sU').value=state.u;$('#sF').value=state.f;
+  $('#vYaw').textContent=f1(state.yaw)+'°';$('#vU').textContent=f1(state.u)+'°';$('#vF').textContent=f1(state.f)+'°';
+}
+function applyPose(p){
+  const q=POSES[p];Object.assign(state,{yaw:q.yaw,u:q.u,f:q.f});syncSliders();comps=build();setPoseActive(p);
+  if(q.view){Object.assign(cam,VIEWS[q.view],{zoom:1});setViewActive(q.view);}draw();}
+document.querySelectorAll('[data-pose]').forEach(b=>b.addEventListener('click',()=>applyPose(b.dataset.pose)));
+[['sYaw','yaw'],['sU','u'],['sF','f']].forEach(([id,k])=>$('#'+id).addEventListener('input',e=>{
+  state[k]=+e.target.value;syncSliders();comps=build();setPoseActive(null);draw();}));
+$('#showAssumed').addEventListener('change',e=>{state.showAssumed=e.target.checked;draw();});
+
+/* ---------- measurement table ---------- */
+(function(){
+  let h='<tr><th>Feature</th><th>Value</th><th>n</th><th>Range</th><th>Source</th></tr>';
+  ROWS.forEach(r=>{
+    if(r.length===1){h+='<tr class="grp"><td colspan="5">'+r[0]+'</td></tr>';return;}
+    h+='<tr><td>'+r[0]+'</td><td class="n">'+r[1]+'</td><td class="n">'+r[2]+'</td><td class="n">'+r[3]+'</td><td>'+r[4]+'</td></tr>';
+  });
+  $('#tbl').innerHTML=h;
+})();
+
+window.addEventListener('resize',resize);
+if(window.matchMedia)matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);
+renderInfo();renderParts();syncSliders();setPoseActive('f4');setViewActive('A');
+requestAnimationFrame(resize);
+})();
+</script>
+</body>
+</html>

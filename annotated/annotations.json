@@ -1,952 +1,2813 @@
 {
   "frame_t0005.37s.png": [
     {
-      "type": "scale",
-      "pts": [
-        [
-          674,
-          973
-        ],
-        [
-          755,
-          974
-        ]
+      "type": "circle",
+      "center": [
+        561.01,
+        511.89
       ],
-      "mm": 25.0,
-      "px": 81.00617260431454,
-      "px_per_mm": 3.2402469041725817,
-      "label": "table hole pitch: 25 mm (3.24 px/mm)"
+      "edge": [
+        558.81,
+        517.28
+      ],
+      "radius_px": 5.822,
+      "name": "tip aux hole 1",
+      "radius_mm": 1.86,
+      "diameter_mm": 3.72,
+      "label": "tip aux hole 1: r~1.9 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        593.84,
+        516.9
+      ],
+      "edge": [
+        589.96,
+        512.87
+      ],
+      "radius_px": 5.594,
+      "name": "tip aux hole 2",
+      "radius_mm": 1.79,
+      "diameter_mm": 3.57,
+      "label": "tip aux hole 2: r~1.8 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        614.49,
+        491.8
+      ],
+      "edge": [
+        609.46,
+        493.38
+      ],
+      "radius_px": 5.272,
+      "name": "tip aux hole 3",
+      "radius_mm": 1.68,
+      "diameter_mm": 3.37,
+      "label": "tip aux hole 3: r~1.7 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        603.2,
+        460.53
+      ],
+      "edge": [
+        597.24,
+        461.0
+      ],
+      "radius_px": 5.979,
+      "name": "tip aux hole 4",
+      "radius_mm": 1.91,
+      "diameter_mm": 3.82,
+      "label": "tip aux hole 4: r~1.9 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        570.76,
+        455.04
+      ],
+      "edge": [
+        576.29,
+        455.37
+      ],
+      "radius_px": 5.54,
+      "name": "tip aux hole 5",
+      "radius_mm": 1.77,
+      "diameter_mm": 3.54,
+      "label": "tip aux hole 5: r~1.8 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        549.81,
+        479.87
+      ],
+      "edge": [
+        553.42,
+        475.44
+      ],
+      "radius_px": 5.715,
+      "name": "tip aux hole 6",
+      "radius_mm": 1.83,
+      "diameter_mm": 3.65,
+      "label": "tip aux hole 6: r~1.8 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        582.31,
+        486.2
+      ],
+      "edge": [
+        567.88,
+        499.49
+      ],
+      "radius_px": 19.618,
+      "name": "tip main hole",
+      "radius_mm": 6.27,
+      "diameter_mm": 12.53,
+      "label": "tip main hole: r~6.3 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        582.29,
+        486.21
+      ],
+      "edge": [
+        567.1,
+        525.98
+      ],
+      "radius_px": 42.572,
+      "name": "tip end effector rounded radius",
+      "radius_mm": 13.6,
+      "diameter_mm": 27.2,
+      "label": "tip end effector rounded radius: r~13.6 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        881.79,
+        374.19
+      ],
+      "edge": [
+        829.5,
+        449.68
+      ],
+      "radius_px": 91.831,
+      "name": "tip beam joint screwplate radius",
+      "radius_mm": 29.33,
+      "diameter_mm": 58.66,
+      "label": "tip beam joint screwplate radius: r~29.3 mm"
     },
     {
       "type": "measure",
       "pts": [
         [
-          897,
-          377
+          567.55,
+          446.35
         ],
         [
-          909,
-          364
+          790.7,
+          364.35
         ]
       ],
-      "label": "~5.5 mm"
+      "name": "tip end effector to tip beam joint screwplate side length reference 1",
+      "px": 237.739,
+      "angle_deg": 20.18,
+      "mm": 75.94,
+      "label": "tip end effector to tip beam joint screwplate side length reference 1: ~75.9 mm"
     },
     {
       "type": "measure",
       "pts": [
         [
-          1079,
-          637
+          597.53,
+          526.01
         ],
         [
-          1091,
-          624
+          820.58,
+          442.83
         ]
       ],
-      "label": "~5.5 mm"
+      "name": "tip end effector to tip beam joint screwplate side length reference 2",
+      "px": 238.055,
+      "angle_deg": 20.45,
+      "mm": 76.04,
+      "label": "tip end effector to tip beam joint screwplate side length reference 2: ~76.0 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        850.07,
+        447.68
+      ],
+      "edge": [
+        838.45,
+        445.63
+      ],
+      "radius_px": 11.799,
+      "name": "tip beam joint screwplate screw 1",
+      "radius_mm": 3.77,
+      "diameter_mm": 7.54,
+      "label": "tip beam joint screwplate screw 1: r~3.8 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        812.64,
+        341.06
+      ],
+      "edge": [
+        809.4,
+        352.05
+      ],
+      "radius_px": 11.458,
+      "name": "tip beam joint screwplate screw 2",
+      "radius_mm": 3.66,
+      "diameter_mm": 7.32,
+      "label": "tip beam joint screwplate screw 2: r~3.7 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        918.0,
+        301.3
+      ],
+      "edge": [
+        910.0,
+        310.33
+      ],
+      "radius_px": 12.064,
+      "name": "tip beam joint screwplate screw 3",
+      "radius_mm": 3.85,
+      "diameter_mm": 7.71,
+      "label": "tip beam joint screwplate screw 3: r~3.9 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        955.7,
+        406.61
+      ],
+      "edge": [
+        967.16,
+        406.79
+      ],
+      "radius_px": 11.461,
+      "name": "tip beam joint screwplate screw 4",
+      "radius_mm": 3.66,
+      "diameter_mm": 7.32,
+      "label": "tip beam joint screwplate screw 4: r~3.7 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        639.03,
+        466.1
+      ],
+      "edge": [
+        632.32,
+        471.99
+      ],
+      "radius_px": 8.928,
+      "name": "tip beam cutout rounding radius",
+      "radius_mm": 2.85,
+      "diameter_mm": 5.7,
+      "label": "tip beam cutout rounding radius: r~2.9 mm"
     },
     {
       "type": "measure",
       "pts": [
         [
-          946,
-          461
+          639.05,
+          466.1
         ],
         [
-          958,
-          451
+          821.21,
+          396.57
         ]
       ],
-      "label": "~4.8 mm"
+      "name": "tip beam cutout rounding radius center to joint actuator edge",
+      "px": 194.979,
+      "angle_deg": 20.89,
+      "mm": 62.28,
+      "label": "tip beam cutout rounding radius center to joint actuator edge: ~62.3 mm"
     },
     {
       "type": "measure",
       "pts": [
         [
-          704,
-          432
+          821.21,
+          396.56
         ],
         [
-          710,
-          447
+          630.18,
+          469.2
         ]
       ],
-      "label": "~5.0 mm"
+      "name": "tip beam cutout rounding radius far edge to joint actuator edge",
+      "px": 204.375,
+      "angle_deg": -159.18,
+      "mm": 65.28,
+      "label": "tip beam cutout rounding radius far edge to joint actuator edge: ~65.3 mm"
     },
     {
       "type": "measure",
       "pts": [
         [
-          899,
-          376
+          679.53,
+          441.53
         ],
         [
-          830,
-          298
+          687.58,
+          457.66
         ]
       ],
-      "label": "~32.1 mm"
+      "name": "tip beam cutout height",
+      "px": 18.027,
+      "angle_deg": -63.48,
+      "mm": 5.76,
+      "label": "tip beam cutout height: ~5.8 mm"
     },
     {
       "type": "measure",
       "pts": [
         [
-          584,
-          487
+          678.04,
+          405.88
         ],
         [
-          597,
-          526
+          713.12,
+          483.03
         ]
       ],
-      "label": "~12.7 mm"
+      "name": "tip beam top edge to bottom edge height",
+      "px": 84.751,
+      "angle_deg": -65.55,
+      "mm": 27.07,
+      "label": "tip beam top edge to bottom edge height: ~27.1 mm"
     },
     {
-      "type": "measure",
+      "type": "line",
       "pts": [
         [
-          571,
-          455
+          642.54,
+          474.4
         ],
         [
-          577,
-          454
+          823.58,
+          405.67
         ]
       ],
-      "label": "~1.9 mm"
+      "name": "tip beam cutout rounding hole to joint actuator edge lower reference",
+      "px": 193.647,
+      "angle_deg": 20.79,
+      "mm": 61.85,
+      "label": "tip beam cutout rounding hole to joint actuator edge lower reference: ~61.9 mm"
     },
     {
-      "type": "measure",
+      "type": "line",
       "pts": [
         [
-          1078,
-          638
+          635.45,
+          457.94
         ],
         [
-          1103,
-          672
+          816.74,
+          389.63
         ]
       ],
-      "label": "~13.0 mm"
+      "name": "tip beam cutout rounding hole to joint actuator edge upper reference",
+      "px": 193.733,
+      "angle_deg": 20.65,
+      "mm": 61.88,
+      "label": "tip beam cutout rounding hole to joint actuator edge upper reference: ~61.9 mm"
     },
     {
-      "type": "measure",
+      "type": "line",
       "pts": [
         [
-          1076,
-          638
+          816.78,
+          389.66
         ],
         [
-          1044,
-          690
+          823.87,
+          405.99
         ]
       ],
-      "label": "~18.8 mm"
+      "name": "tip beam cutout rounding hole to jount actuater edge upper to lower reference connector",
+      "px": 17.803,
+      "angle_deg": -66.53,
+      "mm": 5.69,
+      "label": "tip beam cutout rounding hole to jount actuater edge upper to lower reference connector: ~5.7 mm"
     },
     {
-      "type": "measure",
-      "pts": [
-        [
-          1051,
-          872
-        ],
-        [
-          1051,
-          887
-        ]
+      "type": "circle",
+      "center": [
+        893.69,
+        375.61
       ],
-      "label": "~4.6 mm"
+      "edge": [
+        834.39,
+        392.53
+      ],
+      "radius_px": 61.667,
+      "name": "tip beam actuator housing",
+      "radius_mm": 19.7,
+      "diameter_mm": 39.39,
+      "label": "tip beam actuator housing: r~19.7 mm"
     },
     {
-      "type": "measure",
-      "pts": [
-        [
-          980,
-          888
-        ],
-        [
-          980,
-          934
-        ]
+      "type": "circle",
+      "center": [
+        893.68,
+        375.74
       ],
-      "label": "~14.2 mm"
+      "edge": [
+        837.48,
+        387.42
+      ],
+      "radius_px": 57.401,
+      "name": "tip beam actuator part (probably a harmonic drive)",
+      "radius_mm": 18.33,
+      "diameter_mm": 36.67,
+      "label": "tip beam actuator part (probably a harmonic drive): r~18.3 mm"
     },
     {
-      "type": "measure",
-      "pts": [
-        [
-          898,
-          377
-        ],
-        [
-          586,
-          486
-        ]
+      "type": "circle",
+      "center": [
+        893.79,
+        375.82
       ],
-      "label": "~102.0 mm"
+      "edge": [
+        861.31,
+        344.15
+      ],
+      "radius_px": 45.365,
+      "name": "tip beam actuator part inner radius",
+      "radius_mm": 14.49,
+      "diameter_mm": 28.98,
+      "label": "tip beam actuator part inner radius: r~14.5 mm"
     },
     {
-      "type": "measure",
-      "pts": [
-        [
-          899,
-          378
-        ],
-        [
-          1078,
-          637
-        ]
+      "type": "circle",
+      "center": [
+        894.02,
+        375.35
       ],
-      "label": "~97.2 mm"
+      "edge": [
+        924.29,
+        345.9
+      ],
+      "radius_px": 42.232,
+      "name": "connector to supporting beam joint radius",
+      "radius_mm": 13.49,
+      "diameter_mm": 26.98,
+      "label": "connector to supporting beam joint radius: r~13.5 mm"
     },
     {
-      "type": "measure",
-      "pts": [
-        [
-          925,
-          416
-        ],
-        [
-          1049,
-          598
-        ]
+      "type": "circle",
+      "center": [
+        893.75,
+        375.79
       ],
-      "label": "~68.0 mm"
+      "edge": [
+        874.73,
+        378.7
+      ],
+      "radius_px": 19.241,
+      "name": "connector to supporting beam inner joint radius",
+      "radius_mm": 6.15,
+      "diameter_mm": 12.29,
+      "label": "connector to supporting beam inner joint radius: r~6.2 mm"
     },
     {
-      "type": "measure",
-      "pts": [
-        [
-          632,
-          468
-        ],
-        [
-          820,
-          397
-        ]
+      "type": "circle",
+      "center": [
+        897.27,
+        343.35
       ],
-      "label": "~62.0 mm"
+      "edge": [
+        891.1,
+        349.63
+      ],
+      "radius_px": 8.804,
+      "name": "connector to supporting beam screw 1",
+      "radius_mm": 2.81,
+      "diameter_mm": 5.62,
+      "label": "connector to supporting beam screw 1: r~2.8 mm"
     },
     {
-      "type": "measure",
-      "pts": [
-        [
-          1101,
-          912
-        ],
-        [
-          979,
-          913
-        ]
+      "type": "circle",
+      "center": [
+        870.42,
+        362.47
       ],
-      "label": "~37.7 mm"
+      "edge": [
+        864.51,
+        369.42
+      ],
+      "radius_px": 9.123,
+      "name": "connector to supporting beam screw 2",
+      "radius_mm": 2.91,
+      "diameter_mm": 5.83,
+      "label": "connector to supporting beam screw 2: r~2.9 mm"
     },
     {
-      "type": "measure",
-      "pts": [
-        [
-          990,
-          743
-        ],
-        [
-          993,
-          868
-        ]
+      "type": "circle",
+      "center": [
+        873.41,
+        396.39
       ],
-      "label": "~38.6 mm"
+      "edge": [
+        865.75,
+        401.4
+      ],
+      "radius_px": 9.153,
+      "name": "connector to supporting beam screw 3",
+      "radius_mm": 2.92,
+      "diameter_mm": 5.85,
+      "label": "connector to supporting beam screw 3: r~2.9 mm"
     },
     {
-      "type": "measure",
-      "pts": [
-        [
-          1153,
-          868
-        ],
-        [
-          1156,
-          623
-        ]
+      "type": "circle",
+      "center": [
+        903.87,
+        410.03
       ],
-      "label": "~75.6 mm"
+      "edge": [
+        900.18,
+        418.38
+      ],
+      "radius_px": 9.129,
+      "name": "connector to supporting beam screw 4",
+      "radius_mm": 2.92,
+      "diameter_mm": 5.83,
+      "label": "connector to supporting beam screw 4: r~2.9 mm"
     },
     {
-      "type": "measure",
-      "pts": [
-        [
-          1076,
-          640
-        ],
-        [
-          972,
-          640
-        ]
+      "type": "circle",
+      "center": [
+        930.06,
+        389.85
       ],
-      "label": "~32.1 mm"
+      "edge": [
+        927.03,
+        398.6
+      ],
+      "radius_px": 9.26,
+      "name": "connector to supporting beam screw 5",
+      "radius_mm": 2.96,
+      "diameter_mm": 5.92,
+      "label": "connector to supporting beam screw 5: r~3.0 mm"
     },
     {
-      "type": "measure",
+      "type": "circle",
+      "center": [
+        927.34,
+        356.88
+      ],
+      "edge": [
+        920.83,
+        363.35
+      ],
+      "radius_px": 9.178,
+      "name": "connector to supporting beam screw 6",
+      "radius_mm": 2.93,
+      "diameter_mm": 5.86,
+      "label": "connector to supporting beam screw 6: r~2.9 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        930.64,
+        423.87
+      ],
+      "edge": [
+        922.03,
+        426.22
+      ],
+      "radius_px": 8.925,
+      "name": "connector beam cutout rounding radius",
+      "radius_mm": 2.85,
+      "diameter_mm": 5.7,
+      "label": "connector beam cutout rounding radius: r~2.9 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        1045.34,
+        590.92
+      ],
+      "edge": [
+        1050.3,
+        598.97
+      ],
+      "radius_px": 9.455,
+      "name": "connector beam cutout rounding radius lower",
+      "radius_mm": 3.02,
+      "diameter_mm": 6.04,
+      "label": "connector beam cutout rounding radius lower: r~3.0 mm"
+    },
+    {
+      "type": "line",
       "pts": [
         [
-          1102,
-          742
+          966.51,
+          490.51
         ],
         [
-          1101,
-          809
+          980.54,
+          481.54
         ]
       ],
-      "label": "~20.7 mm"
+      "name": "connector beam cutout height",
+      "px": 16.652,
+      "angle_deg": 32.59,
+      "mm": 5.32,
+      "label": "connector beam cutout height: ~5.3 mm"
+    },
+    {
+      "type": "line",
+      "pts": [
+        [
+          922.79,
+          428.0
+        ],
+        [
+          1038.34,
+          597.25
+        ]
+      ],
+      "name": "connector beam cutout rounding radius connector lower reference",
+      "px": 204.933,
+      "angle_deg": -55.68,
+      "mm": 65.46,
+      "label": "connector beam cutout rounding radius connector lower reference: ~65.5 mm"
+    },
+    {
+      "type": "line",
+      "pts": [
+        [
+          1052.0,
+          584.2
+        ],
+        [
+          937.43,
+          418.06
+        ]
+      ],
+      "name": "connector beam cutout rounding radius connector upper reference",
+      "px": 201.814,
+      "angle_deg": 124.59,
+      "mm": 64.46,
+      "label": "connector beam cutout rounding radius connector upper reference: ~64.5 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        1074.26,
+        637.6
+      ],
+      "edge": [
+        1058.84,
+        647.37
+      ],
+      "radius_px": 18.255,
+      "name": "connector beam base actuator inner joint radius",
+      "radius_mm": 5.83,
+      "diameter_mm": 11.66,
+      "label": "connector beam base actuator inner joint radius: r~5.8 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        1078.24,
+        639.03
+      ],
+      "edge": [
+        1096.0,
+        645.35
+      ],
+      "radius_px": 18.851,
+      "name": "connector beam base actuator inner joint radius accounting for joint depth (not well-viewable from this angle)",
+      "radius_mm": 6.02,
+      "diameter_mm": 12.04,
+      "label": "connector beam base actuator inner joint radius accounting for joint depth (not well-viewable from this angle): r~6.0 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        1078.04,
+        639.12
+      ],
+      "edge": [
+        1053.08,
+        672.18
+      ],
+      "radius_px": 41.424,
+      "name": "connector beam base actuator outer joint radius",
+      "radius_mm": 13.23,
+      "diameter_mm": 26.46,
+      "label": "connector beam base actuator outer joint radius: r~13.2 mm"
+    },
+    {
+      "type": "line",
+      "pts": [
+        [
+          1045.69,
+          664.47
+        ],
+        [
+          858.45,
+          391.1
+        ]
+      ],
+      "name": "connector beam base actuator lower circle to upper circle bottom reference",
+      "px": 331.346,
+      "angle_deg": 124.41,
+      "mm": 105.83,
+      "label": "connector beam base actuator lower circle to upper circle bottom reference: ~105.8 mm"
+    },
+    {
+      "type": "line",
+      "pts": [
+        [
+          1112.1,
+          615.6
+        ],
+        [
+          926.71,
+          344.45
+        ]
+      ],
+      "name": "connector beam base actuator lower circle to upper circle top reference",
+      "px": 328.469,
+      "angle_deg": 124.36,
+      "mm": 104.91,
+      "label": "connector beam base actuator lower circle to upper circle top reference: ~104.9 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        1008.55,
+        692.17
+      ],
+      "edge": [
+        1000.63,
+        698.88
+      ],
+      "radius_px": 10.38,
+      "name": "circle",
+      "radius_mm": 3.32,
+      "diameter_mm": 6.63,
+      "label": "circle: r~3.3 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        1118.49,
+        689.33
+      ],
+      "edge": [
+        1115.93,
+        699.06
+      ],
+      "radius_px": 10.061,
+      "name": "circle",
+      "radius_mm": 3.21,
+      "diameter_mm": 6.43,
+      "label": "circle: r~3.2 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        1117.48,
+        576.16
+      ],
+      "edge": [
+        1107.75,
+        580.55
+      ],
+      "radius_px": 10.675,
+      "name": "circle",
+      "radius_mm": 3.41,
+      "diameter_mm": 6.82,
+      "label": "circle: r~3.4 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        1004.91,
+        578.08
+      ],
+      "edge": [
+        994.54,
+        575.53
+      ],
+      "radius_px": 10.679,
+      "name": "circle",
+      "radius_mm": 3.41,
+      "diameter_mm": 6.82,
+      "label": "circle: r~3.4 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        1055.81,
+        659.5
+      ],
+      "edge": [
+        1049.92,
+        666.05
+      ],
+      "radius_px": 8.809,
+      "name": "circle",
+      "radius_mm": 2.81,
+      "diameter_mm": 5.63,
+      "label": "circle: r~2.8 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        1085.46,
+        672.01
+      ],
+      "edge": [
+        1077.86,
+        675.96
+      ],
+      "radius_px": 8.565,
+      "name": "circle",
+      "radius_mm": 2.74,
+      "diameter_mm": 5.47,
+      "label": "circle: r~2.7 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        1111.24,
+        651.37
+      ],
+      "edge": [
+        1104.61,
+        656.44
+      ],
+      "radius_px": 8.346,
+      "name": "circle",
+      "radius_mm": 2.67,
+      "diameter_mm": 5.33,
+      "label": "circle: r~2.7 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        1107.07,
+        618.96
+      ],
+      "edge": [
+        1101.48,
+        624.85
+      ],
+      "radius_px": 8.12,
+      "name": "circle",
+      "radius_mm": 2.59,
+      "diameter_mm": 5.19,
+      "label": "circle: r~2.6 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        1077.11,
+        606.37
+      ],
+      "edge": [
+        1069.74,
+        610.4
+      ],
+      "radius_px": 8.4,
+      "name": "circle",
+      "radius_mm": 2.68,
+      "diameter_mm": 5.37,
+      "label": "circle: r~2.7 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        1051.57,
+        626.59
+      ],
+      "edge": [
+        1048.79,
+        634.95
+      ],
+      "radius_px": 8.81,
+      "name": "circle",
+      "radius_mm": 2.81,
+      "diameter_mm": 5.63,
+      "label": "circle: r~2.8 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        1074.14,
+        637.77
+      ],
+      "edge": [
+        1026.87,
+        669.52
+      ],
+      "radius_px": 56.943,
+      "name": "circle",
+      "radius_mm": 18.19,
+      "diameter_mm": 36.38,
+      "label": "circle: r~18.2 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        1074.19,
+        637.65
+      ],
+      "edge": [
+        1014.17,
+        652.77
+      ],
+      "radius_px": 61.895,
+      "name": "circle",
+      "radius_mm": 19.77,
+      "diameter_mm": 39.54,
+      "label": "circle: r~19.8 mm"
+    },
+    {
+      "type": "circle",
+      "center": [
+        1060.61,
+        635.7
+      ],
+      "edge": [
+        992.86,
+        694.13
+      ],
+      "radius_px": 89.466,
+      "name": "circle",
+      "radius_mm": 28.58,
+      "diameter_mm": 57.15,
+      "label": "circle: r~28.6 mm"
+    },
+    {
+      "type": "polygon",
+      "pts": [
+        [
+          957.91,
+          855.39
+        ],
+        [
+          986.96,
+          869.98
+        ],
+        [
+          987.18,
+          851.48
+        ],
+        [
+          987.84,
+          743.32
+        ],
+        [
+          984.09,
+          742.01
+        ],
+        [
+          984.24,
+          810.83
+        ],
+        [
+          961.83,
+          800.79
+        ],
+        [
+          962.63,
+          732.02
+        ],
+        [
+          958.99,
+          730.2
+        ],
+        [
+          957.9,
+          855.53
+        ]
+      ],
+      "closed": true,
+      "name": "side profile of base enclosure with square side cutouts (probably invalid from this perspective",
+      "area_px": 2146.13,
+      "perimeter_px": 454.84,
+      "centroid_px": [
+        972.81,
+        819.92
+      ],
+      "area_mm2": 218.95,
+      "perimeter_mm": 145.28,
+      "label": "side profile of base enclosure with square side cutouts (probably invalid from this perspective: ~219 sq mm"
+    },
+    {
+      "type": "polygon",
+      "pts": [
+        [
+          987.08,
+          870.12
+        ],
+        [
+          994.41,
+          871.34
+        ],
+        [
+          995.58,
+          743.72
+        ],
+        [
+          987.89,
+          743.48
+        ]
+      ],
+      "closed": true,
+      "name": "chamfered edge of left side profile of base enclosure from this persepctive to front profile of base enclosure from this perspective",
+      "area_px": 955.47,
+      "perimeter_px": 269.39,
+      "centroid_px": [
+        991.25,
+        806.67
+      ],
+      "area_mm2": 97.48,
+      "perimeter_mm": 86.04,
+      "label": "chamfered edge of left side profile of base enclosure from this persepctive to front profile of base enclosure from this perspective: ~97 sq mm"
+    },
+    {
+      "type": "polygon",
+      "pts": [
+        [
+          994.36,
+          870.66
+        ],
+        [
+          1114.55,
+          867.52
+        ],
+        [
+          1115.0,
+          739.71
+        ],
+        [
+          1102.61,
+          739.71
+        ],
+        [
+          1102.89,
+          809.84
+        ],
+        [
+          1006.96,
+          812.44
+        ],
+        [
+          1007.15,
+          742.87
+        ],
+        [
+          995.97,
+          743.81
+        ]
+      ],
+      "closed": true,
+      "name": "front profile of base enclosure with square cutout",
+      "area_px": 8594.39,
+      "perimeter_px": 634.18,
+      "centroid_px": [
+        1055.09,
+        827.91
+      ],
+      "area_mm2": 876.8,
+      "perimeter_mm": 202.56,
+      "label": "front profile of base enclosure with square cutout: ~877 sq mm"
+    },
+    {
+      "type": "polygon",
+      "pts": [
+        [
+          1138.8,
+          592.2
+        ],
+        [
+          1158.36,
+          591.85
+        ],
+        [
+          1158.36,
+          669.04
+        ],
+        [
+          1144.15,
+          668.92
+        ],
+        [
+          1147.53,
+          658.09
+        ],
+        [
+          1150.56,
+          639.47
+        ],
+        [
+          1149.04,
+          620.37
+        ],
+        [
+          1145.2,
+          606.52
+        ]
+      ],
+      "closed": true,
+      "name": "base actuator elevated arm beam to make space for components below",
+      "area_px": 866.76,
+      "perimeter_px": 190.39,
+      "centroid_px": [
+        1152.34,
+        627.51
+      ],
+      "area_mm2": 88.43,
+      "perimeter_mm": 60.81,
+      "label": "base actuator elevated arm beam to make space for components below: ~88 sq mm"
+    },
+    {
+      "type": "polygon",
+      "pts": [
+        [
+          957.84,
+          855.54
+        ],
+        [
+          953.07,
+          856.49
+        ],
+        [
+          947.42,
+          859.96
+        ],
+        [
+          946.43,
+          861.34
+        ],
+        [
+          946.74,
+          863.21
+        ],
+        [
+          948.57,
+          865.46
+        ],
+        [
+          953.6,
+          867.86
+        ],
+        [
+          960.93,
+          869.73
+        ],
+        [
+          973.97,
+          871.22
+        ],
+        [
+          984.62,
+          872.44
+        ],
+        [
+          1001.21,
+          872.82
+        ],
+        [
+          1025.05,
+          873.24
+        ],
+        [
+          1055.14,
+          873.58
+        ],
+        [
+          1087.88,
+          872.42
+        ],
+        [
+          1105.35,
+          870.82
+        ],
+        [
+          1121.94,
+          866.6
+        ],
+        [
+          1127.76,
+          865.0
+        ],
+        [
+          1137.51,
+          863.4
+        ],
+        [
+          1140.56,
+          857.87
+        ],
+        [
+          1139.91,
+          678.0
+        ],
+        [
+          1116.44,
+          676.55
+        ],
+        [
+          1116.26,
+          738.21
+        ],
+        [
+          1115.53,
+          848.08
+        ],
+        [
+          1101.16,
+          845.72
+        ],
+        [
+          1084.79,
+          845.35
+        ],
+        [
+          1049.32,
+          844.08
+        ],
+        [
+          1028.04,
+          846.44
+        ],
+        [
+          1001.66,
+          846.81
+        ],
+        [
+          972.02,
+          848.99
+        ]
+      ],
+      "closed": true,
+      "name": "circular movable plate with elevated arm top",
+      "area_px": 8697.72,
+      "perimeter_px": 749.64,
+      "centroid_px": [
+        1084.67,
+        813.86
+      ],
+      "area_mm2": 887.34,
+      "perimeter_mm": 239.44,
+      "label": "circular movable plate with elevated arm top: ~887 sq mm"
+    },
+    {
+      "type": "polygon",
+      "pts": [
+        [
+          948.19,
+          877.18
+        ],
+        [
+          956.19,
+          881.91
+        ],
+        [
+          969.47,
+          884.46
+        ],
+        [
+          990.39,
+          885.37
+        ],
+        [
+          1015.31,
+          887.01
+        ],
+        [
+          1051.14,
+          887.37
+        ],
+        [
+          1088.79,
+          886.1
+        ],
+        [
+          1113.35,
+          882.82
+        ],
+        [
+          1129.18,
+          877.73
+        ],
+        [
+          1137.72,
+          874.64
+        ],
+        [
+          1145.18,
+          869.0
+        ],
+        [
+          1151.19,
+          858.81
+        ],
+        [
+          1152.82,
+          849.35
+        ],
+        [
+          1152.67,
+          669.73
+        ],
+        [
+          1115.85,
+          668.13
+        ],
+        [
+          1119.97,
+          856.95
+        ],
+        [
+          1111.09,
+          853.05
+        ],
+        [
+          1099.72,
+          850.92
+        ],
+        [
+          1083.74,
+          850.56
+        ],
+        [
+          1065.62,
+          851.27
+        ],
+        [
+          1032.93,
+          851.98
+        ],
+        [
+          1010.55,
+          852.69
+        ],
+        [
+          994.21,
+          856.24
+        ],
+        [
+          973.25,
+          860.86
+        ],
+        [
+          960.81,
+          866.55
+        ]
+      ],
+      "closed": true,
+      "name": "circular movable plate with elevated arm bottom",
+      "area_px": 12248.02,
+      "perimeter_px": 807.68,
+      "centroid_px": [
+        1095.81,
+        811.57
+      ],
+      "area_mm2": 1249.54,
+      "perimeter_mm": 257.98,
+      "label": "circular movable plate with elevated arm bottom: ~1250 sq mm"
+    },
+    {
+      "type": "line",
+      "pts": [
+        [
+          947.15,
+          863.83
+        ],
+        [
+          947.74,
+          877.65
+        ]
+      ],
+      "name": "thickness of circular movable plate",
+      "px": 13.833,
+      "angle_deg": -87.56,
+      "mm": 4.42,
+      "label": "thickness of circular movable plate: ~4.4 mm"
+    },
+    {
+      "type": "polygon",
+      "pts": [
+        [
+          976.27,
+          885.52
+        ],
+        [
+          976.62,
+          933.84
+        ],
+        [
+          980.46,
+          936.4
+        ],
+        [
+          987.21,
+          937.91
+        ],
+        [
+          997.92,
+          939.89
+        ],
+        [
+          1013.17,
+          940.12
+        ],
+        [
+          1030.64,
+          940.24
+        ],
+        [
+          1048.56,
+          940.82
+        ],
+        [
+          1066.61,
+          940.24
+        ],
+        [
+          1089.19,
+          938.26
+        ],
+        [
+          1097.23,
+          936.86
+        ],
+        [
+          1100.14,
+          933.95
+        ],
+        [
+          1100.02,
+          884.94
+        ],
+        [
+          1090.94,
+          887.5
+        ],
+        [
+          1082.09,
+          886.8
+        ],
+        [
+          1071.85,
+          888.08
+        ],
+        [
+          1059.27,
+          888.2
+        ],
+        [
+          1044.14,
+          888.32
+        ],
+        [
+          1030.05,
+          888.67
+        ],
+        [
+          1010.73,
+          887.5
+        ],
+        [
+          997.69,
+          887.27
+        ],
+        [
+          983.72,
+          886.69
+        ]
+      ],
+      "closed": true,
+      "name": "rotatable plate spacer from baseplate",
+      "area_px": 6402.19,
+      "perimeter_px": 347.77,
+      "centroid_px": [
+        1038.26,
+        913.48
+      ],
+      "area_mm2": 653.15,
+      "perimeter_mm": 111.08,
+      "label": "rotatable plate spacer from baseplate: ~653 sq mm"
     }
   ],
   "frame_t0014.25s.png": [
     {
+      "type": "polygon",
+      "pts": [
+        [
+          965.47,
+          741.4
+        ],
+        [
+          965.02,
+          867.78
+        ],
+        [
+          1087.13,
+          871.15
+        ],
+        [
+          1086.68,
+          742.75
+        ],
+        [
+          1075.01,
+          742.97
+        ],
+        [
+          1074.56,
+          812.33
+        ],
+        [
+          978.26,
+          810.54
+        ],
+        [
+          977.14,
+          741.4
+        ]
+      ],
+      "closed": true,
+      "name": "front profile of base enclosure from this perspective",
+      "area_px": 8763.64,
+      "perimeter_px": 635.11,
+      "centroid_px": [
+        1026.15,
+        828.29
+      ],
+      "area_mm2": 894.07,
+      "perimeter_mm": 202.86,
+      "label": "front profile of base enclosure from this perspective: ~894 sq mm"
+    },
+    {
+      "type": "polygon",
+      "pts": [
+        [
+          964.98,
+          867.83
+        ],
+        [
+          960.75,
+          865.47
+        ],
+        [
+          960.06,
+          739.98
+        ],
+        [
+          965.3,
+          741.39
+        ]
+      ],
+      "closed": true,
+      "name": "chamfer connecting front profile of base enclosure to left profile",
+      "area_px": 596.1,
+      "perimeter_px": 262.2,
+      "centroid_px": [
+        962.77,
+        801.43
+      ],
+      "area_mm2": 60.81,
+      "perimeter_mm": 83.75,
+      "label": "chamfer connecting front profile of base enclosure to left profile: ~61 sq mm"
+    },
+    {
+      "type": "polygon",
+      "pts": [
+        [
+          1087.39,
+          870.96
+        ],
+        [
+          1093.87,
+          869.63
+        ],
+        [
+          1094.68,
+          741.61
+        ],
+        [
+          1087.7,
+          742.72
+        ]
+      ],
+      "closed": true,
+      "name": "chamfer connecting front profile of base enclosure to right profile",
+      "area_px": 861.63,
+      "perimeter_px": 269.95,
+      "centroid_px": [
+        1090.91,
+        805.43
+      ],
+      "area_mm2": 87.9,
+      "perimeter_mm": 86.22,
+      "label": "chamfer connecting front profile of base enclosure to right profile: ~88 sq mm"
+    },
+    {
+      "type": "polygon",
+      "pts": [
+        [
+          1094.0,
+          869.59
+        ],
+        [
+          1115.37,
+          854.9
+        ],
+        [
+          1115.22,
+          729.99
+        ],
+        [
+          1112.77,
+          731.54
+        ],
+        [
+          1113.24,
+          799.33
+        ],
+        [
+          1105.05,
+          804.46
+        ],
+        [
+          1096.66,
+          810.8
+        ],
+        [
+          1096.25,
+          740.7
+        ],
+        [
+          1094.7,
+          741.55
+        ]
+      ],
+      "closed": true,
+      "name": "right profile of base enclosure from this perspective",
+      "area_px": 1502.45,
+      "perimeter_px": 441.62,
+      "centroid_px": [
+        1104.86,
+        821.52
+      ],
+      "area_mm2": 153.28,
+      "perimeter_mm": 141.06,
+      "label": "right profile of base enclosure from this perspective: ~153 sq mm"
+    },
+    {
+      "type": "polygon",
+      "pts": [
+        [
+          1098.52,
+          696.29
+        ],
+        [
+          972.27,
+          695.39
+        ],
+        [
+          971.2,
+          680.66
+        ],
+        [
+          1038.9,
+          681.56
+        ],
+        [
+          1038.9,
+          582.79
+        ],
+        [
+          970.48,
+          583.51
+        ],
+        [
+          970.66,
+          570.76
+        ],
+        [
+          1096.9,
+          572.02
+        ]
+      ],
+      "closed": true,
+      "name": "front profile of 1st joint actuator mount fron this perspective",
+      "area_px": 9110.47,
+      "perimeter_px": 639.2,
+      "centroid_px": [
+        1055.74,
+        634.83
+      ],
+      "area_mm2": 929.45,
+      "perimeter_mm": 204.16,
+      "label": "front profile of 1st joint actuator mount fron this perspective: ~929 sq mm"
+    },
+    {
       "type": "scale",
       "pts": [
         [
-          924,
-          940
+          844.69,
+          929.88
         ],
         [
-          843,
-          941
+          766.42,
+          929.65
         ]
       ],
+      "name": "table hole pitch",
       "mm": 25.0,
-      "px": 81.00617260431454,
-      "px_per_mm": 3.2402469041725817,
-      "label": "25: 25 mm (3.24 px/mm)"
+      "px": 78.27,
+      "px_per_mm": 3.130813517282692,
+      "angle_deg": 179.83,
+      "label": "table hole pitch: 25 mm (3.13 px/mm)"
     },
     {
-      "type": "measure",
+      "type": "polygon",
       "pts": [
         [
-          983,
-          706
+          969.62,
+          570.36
         ],
         [
-          985,
-          731
+          973.07,
+          562.79
+        ],
+        [
+          1099.44,
+          564.7
+        ],
+        [
+          1096.57,
+          572.06
         ]
       ],
-      "label": "~7.7 mm"
+      "closed": true,
+      "name": "chamfer connecting front profile of 1st joint actuator mount to tip profile of 1st joint actuator mount",
+      "area_px": 951.22,
+      "perimeter_px": 269.56,
+      "centroid_px": [
+        1034.37,
+        567.48
+      ],
+      "area_mm2": 97.04,
+      "perimeter_mm": 86.1,
+      "label": "chamfer connecting front profile of 1st joint actuator mount to tip profile of 1st joint actuator mount: ~97 sq mm"
     },
     {
-      "type": "measure",
+      "type": "polygon",
       "pts": [
         [
-          1063,
-          452
+          972.23,
+          695.66
         ],
         [
-          1078,
-          452
+          972.59,
+          699.93
+        ],
+        [
+          1099.99,
+          700.66
+        ],
+        [
+          1098.52,
+          696.62
         ]
       ],
-      "label": "~4.6 mm"
+      "closed": true,
+      "name": "chamfer connecting front profile of 1st joint actuator mount to bottom  profile of 1st joint actuator mount",
+      "area_px": 526.27,
+      "perimeter_px": 262.28,
+      "centroid_px": [
+        1035.23,
+        698.22
+      ],
+      "area_mm2": 53.69,
+      "perimeter_mm": 83.77,
+      "label": "chamfer connecting front profile of 1st joint actuator mount to bottom  profile of 1st joint actuator mount: ~54 sq mm"
     },
     {
-      "type": "measure",
+      "type": "line",
       "pts": [
         [
-          1147,
-          333
+          1114.99,
+          628.57
         ],
         [
-          1087,
-          333
+          1171.11,
+          628.57
         ]
       ],
-      "label": "~18.5 mm"
+      "name": "height of actuator (probably harmonic drive) from this perspective",
+      "px": 56.12,
+      "angle_deg": 0.0,
+      "mm": 17.93,
+      "label": "height of actuator (probably harmonic drive) from this perspective: ~17.9 mm"
     },
     {
-      "type": "measure",
+      "type": "line",
       "pts": [
         [
-          1066,
-          377
+          1162.59,
+          484.1
         ],
         [
-          938,
-          377
+          1178.45,
+          484.67
         ]
       ],
-      "label": "~39.5 mm"
+      "name": "depth of beam connecting joint 1 with joint 2",
+      "px": 15.87,
+      "angle_deg": -2.06,
+      "mm": 5.07,
+      "label": "depth of beam connecting joint 1 with joint 2: ~5.1 mm"
     },
     {
-      "type": "measure",
+      "type": "line",
       "pts": [
         [
-          1014,
-          272
+          1060.99,
+          482.94
         ],
         [
-          1072,
-          272
+          1077.15,
+          483.12
         ]
       ],
-      "label": "~17.9 mm"
+      "name": "depth of tip beam",
+      "px": 16.161,
+      "angle_deg": -0.64,
+      "mm": 5.16,
+      "label": "depth of tip beam: ~5.2 mm"
     },
     {
-      "type": "measure",
+      "type": "line",
       "pts": [
         [
-          1067,
-          305
+          1087.71,
+          329.2
         ],
         [
-          1082,
-          305
+          1144.89,
+          329.78
         ]
       ],
-      "label": "~4.6 mm"
+      "name": "depth of joint 2 actuator housing",
+      "px": 57.183,
+      "angle_deg": -0.58,
+      "mm": 18.26,
+      "label": "depth of joint 2 actuator housing: ~18.3 mm"
     },
     {
-      "type": "measure",
+      "type": "line",
       "pts": [
         [
-          1098,
-          697
+          1083.23,
+          367.04
         ],
         [
-          971,
-          695
+          1096.11,
+          367.15
         ]
       ],
-      "label": "~39.2 mm"
+      "name": "depth of tip screwplate screws",
+      "px": 12.88,
+      "angle_deg": -0.49,
+      "mm": 4.11,
+      "label": "depth of tip screwplate screws: ~4.1 mm"
     },
     {
-      "type": "measure",
+      "type": "line",
       "pts": [
         [
-          1087,
-          744
+          1168.17,
+          357.5
         ],
         [
-          1086,
-          851
+          1176.79,
+          357.38
         ]
       ],
-      "label": "~33.0 mm"
+      "name": "depth of beam screws",
+      "px": 8.621,
+      "angle_deg": 0.8,
+      "mm": 2.75,
+      "label": "depth of beam screws: ~2.8 mm"
     },
     {
-      "type": "measure",
+      "type": "polygon",
       "pts": [
         [
-          1058,
-          852
+          1066.22,
+          377.61
         ],
         [
-          1057,
-          868
+          937.59,
+          376.71
+        ],
+        [
+          936.47,
+          368.63
+        ],
+        [
+          1066.67,
+          369.75
         ]
       ],
-      "label": "~4.9 mm"
+      "closed": true,
+      "name": "chamfer connecting actuator 2 enclosure front profile to bottom profile",
+      "area_px": 1031.1,
+      "perimeter_px": 274.87,
+      "centroid_px": [
+        1001.46,
+        373.16
+      ],
+      "area_mm2": 105.19,
+      "perimeter_mm": 87.8,
+      "label": "chamfer connecting actuator 2 enclosure front profile to bottom profile: ~105 sq mm"
     },
     {
-      "type": "measure",
+      "type": "polygon",
       "pts": [
         [
-          1071,
-          874
+          936.8,
+          368.52
         ],
         [
-          1071,
-          887
+          936.1,
+          357.69
+        ],
+        [
+          1007.7,
+          356.95
+        ],
+        [
+          1015.17,
+          269.32
+        ],
+        [
+          946.35,
+          269.17
+        ],
+        [
+          947.64,
+          255.81
+        ],
+        [
+          1078.38,
+          254.66
+        ],
+        [
+          1067.32,
+          369.59
         ]
       ],
-      "label": "~4.0 mm"
+      "closed": true,
+      "name": "front profile of actuator 2 enclosure",
+      "area_px": 8773.51,
+      "perimeter_px": 629.38,
+      "centroid_px": [
+        1029.27,
+        311.34
+      ],
+      "area_mm2": 895.07,
+      "perimeter_mm": 201.03,
+      "label": "front profile of actuator 2 enclosure: ~895 sq mm"
     },
     {
-      "type": "measure",
+      "type": "polygon",
       "pts": [
         [
-          1044,
-          888
+          937.44,
+          377.08
         ],
         [
-          1044,
-          940
+          939.02,
+          385.7
+        ],
+        [
+          1011.72,
+          383.4
+        ],
+        [
+          1026.37,
+          430.81
+        ],
+        [
+          957.41,
+          431.53
+        ],
+        [
+          959.57,
+          437.7
+        ],
+        [
+          1076.94,
+          436.12
+        ],
+        [
+          1066.74,
+          378.37
         ]
       ],
-      "label": "~16.0 mm"
+      "closed": true,
+      "name": "bottom profile of actuator 2 enclosure",
+      "area_px": 4015.14,
+      "perimeter_px": 511.95,
+      "centroid_px": [
+        1030.28,
+        406.15
+      ],
+      "area_mm2": 409.62,
+      "perimeter_mm": 163.52,
+      "label": "bottom profile of actuator 2 enclosure: ~410 sq mm"
+    }
+  ],
+  "frame_t0016.12s.png": [
+    {
+      "type": "polygon",
+      "pts": [
+        [
+          974.26,
+          742.86
+        ],
+        [
+          976.78,
+          869.29
+        ],
+        [
+          1100.97,
+          870.13
+        ],
+        [
+          1097.33,
+          742.58
+        ],
+        [
+          1085.55,
+          741.74
+        ],
+        [
+          1086.67,
+          811.26
+        ],
+        [
+          988.56,
+          810.14
+        ],
+        [
+          987.44,
+          741.18
+        ]
+      ],
+      "closed": true,
+      "name": "front profile of base enclosure",
+      "area_px": 9046.16,
+      "perimeter_px": 639.96,
+      "centroid_px": [
+        1037.54,
+        828.02
+      ],
+      "area_mm2": 922.89,
+      "perimeter_mm": 204.41,
+      "label": "front profile of base enclosure: ~923 sq mm"
+    },
+    {
+      "type": "polygon",
+      "pts": [
+        [
+          974.53,
+          742.66
+        ],
+        [
+          968.43,
+          740.46
+        ],
+        [
+          969.79,
+          866.4
+        ],
+        [
+          976.13,
+          869.98
+        ]
+      ],
+      "closed": true,
+      "name": "left chamfer of profile of base enclosure",
+      "area_px": 783.36,
+      "perimeter_px": 267.04,
+      "centroid_px": [
+        972.23,
+        805.26
+      ],
+      "area_mm2": 79.92,
+      "perimeter_mm": 85.29,
+      "label": "left chamfer of profile of base enclosure: ~80 sq mm"
+    },
+    {
+      "type": "polygon",
+      "pts": [
+        [
+          1101.39,
+          870.42
+        ],
+        [
+          1108.09,
+          867.07
+        ],
+        [
+          1105.37,
+          741.52
+        ],
+        [
+          1097.52,
+          742.41
+        ]
+      ],
+      "closed": true,
+      "name": "right chamfer of profile of base enclosure",
+      "area_px": 929.31,
+      "perimeter_px": 269.04,
+      "centroid_px": [
+        1103.04,
+        803.79
+      ],
+      "area_mm2": 94.81,
+      "perimeter_mm": 85.93,
+      "label": "right chamfer of profile of base enclosure: ~95 sq mm"
+    },
+    {
+      "type": "polygon",
+      "pts": [
+        [
+          981.01,
+          694.83
+        ],
+        [
+          1105.48,
+          695.11
+        ],
+        [
+          1104.36,
+          572.32
+        ],
+        [
+          977.37,
+          571.76
+        ],
+        [
+          978.21,
+          583.81
+        ],
+        [
+          1050.26,
+          582.13
+        ],
+        [
+          1049.7,
+          681.93
+        ],
+        [
+          980.45,
+          681.93
+        ]
+      ],
+      "closed": true,
+      "name": "front profile of joint 1 actuator enclosure",
+      "area_px": 8446.03,
+      "perimeter_px": 640.37,
+      "centroid_px": [
+        1064.74,
+        634.37
+      ],
+      "area_mm2": 861.66,
+      "perimeter_mm": 204.54,
+      "label": "front profile of joint 1 actuator enclosure: ~862 sq mm"
+    },
+    {
+      "type": "polygon",
+      "pts": [
+        [
+          980.39,
+          695.37
+        ],
+        [
+          982.96,
+          700.97
+        ],
+        [
+          1107.89,
+          699.96
+        ],
+        [
+          1105.6,
+          695.37
+        ]
+      ],
+      "closed": true,
+      "name": "bottom profile of joint 1 actuator enclsoure",
+      "area_px": 638.46,
+      "perimeter_px": 261.44,
+      "centroid_px": [
+        1042.15,
+        697.93
+      ],
+      "area_mm2": 65.14,
+      "perimeter_mm": 83.51,
+      "label": "bottom profile of joint 1 actuator enclsoure: ~65 sq mm"
+    },
+    {
+      "type": "polygon",
+      "pts": [
+        [
+          1104.97,
+          571.56
+        ],
+        [
+          1106.69,
+          564.24
+        ],
+        [
+          979.47,
+          563.81
+        ],
+        [
+          976.81,
+          572.07
+        ]
+      ],
+      "closed": true,
+      "name": "top profile of koint 1 actuator enclosure",
+      "area_px": 994.62,
+      "perimeter_px": 271.58,
+      "centroid_px": [
+        1040.7,
+        567.92
+      ],
+      "area_mm2": 101.47,
+      "perimeter_mm": 86.74,
+      "label": "top profile of koint 1 actuator enclosure: ~101 sq mm"
+    },
+    {
+      "type": "polygon",
+      "pts": [
+        [
+          1098.09,
+          500.6
+        ],
+        [
+          960.66,
+          500.25
+        ],
+        [
+          961.2,
+          488.58
+        ],
+        [
+          1068.67,
+          488.76
+        ],
+        [
+          1065.98,
+          378.25
+        ],
+        [
+          954.56,
+          381.12
+        ],
+        [
+          953.13,
+          368.02
+        ],
+        [
+          1093.79,
+          368.56
+        ]
+      ],
+      "closed": true,
+      "name": "front profile of joint 2 actuator enclsoure",
+      "area_px": 6322.96,
+      "perimeter_px": 764.53,
+      "centroid_px": [
+        1053.19,
+        434.49
+      ],
+      "area_mm2": 645.07,
+      "perimeter_mm": 244.2,
+      "label": "front profile of joint 2 actuator enclsoure: ~645 sq mm"
+    },
+    {
+      "type": "polygon",
+      "pts": [
+        [
+          1097.86,
+          500.86
+        ],
+        [
+          960.36,
+          500.72
+        ],
+        [
+          960.94,
+          503.3
+        ],
+        [
+          1098.01,
+          503.45
+        ]
+      ],
+      "closed": true,
+      "name": "lower chamfer of joint 2 actuator enclosure",
+      "area_px": 354.83,
+      "perimeter_px": 279.81,
+      "centroid_px": [
+        1029.34,
+        502.08
+      ],
+      "area_mm2": 36.2,
+      "perimeter_mm": 89.37,
+      "label": "lower chamfer of joint 2 actuator enclosure: ~36 sq mm"
+    },
+    {
+      "type": "polygon",
+      "pts": [
+        [
+          961.66,
+          504.02
+        ],
+        [
+          961.8,
+          509.62
+        ],
+        [
+          1058.25,
+          510.62
+        ],
+        [
+          1053.66,
+          546.22
+        ],
+        [
+          964.81,
+          548.52
+        ],
+        [
+          969.69,
+          557.99
+        ],
+        [
+          1097.29,
+          553.54
+        ],
+        [
+          1098.73,
+          501.58
+        ]
+      ],
+      "closed": true,
+      "name": "bottom porfile of joint 2 actuator enclosure",
+      "area_px": 3669.15,
+      "perimeter_px": 554.23,
+      "centroid_px": [
+        1050.64,
+        529.63
+      ],
+      "area_mm2": 374.33,
+      "perimeter_mm": 177.02,
+      "label": "bottom porfile of joint 2 actuator enclosure: ~374 sq mm"
     }
   ],
   "frame_t0021.72s.png": [
     {
-      "type": "scale",
-      "pts": [
-        [
-          921,
-          940
-        ],
-        [
-          842,
-          939
-        ]
+      "type": "circle",
+      "center": [
+        723.09,
+        688.8
       ],
-      "mm": 25.0,
-      "px": 79.00632886041473,
-      "px_per_mm": 3.160253154416589,
-      "label": "table hole pitch: 25 mm (3.16 px/mm)"
+      "edge": [
+        729.67,
+        706.34
+      ],
+      "radius_px": 18.734,
+      "name": "circle",
+      "radius_mm": 5.98,
+      "diameter_mm": 11.97,
+      "label": "circle: r~6.0 mm"
     },
     {
-      "type": "measure",
-      "pts": [
-        [
-          748,
-          669
-        ],
-        [
-          752,
-          665
-        ]
+      "type": "circle",
+      "center": [
+        1038.75,
+        638.39
       ],
-      "label": "~1.8 mm"
+      "edge": [
+        1027.35,
+        655.05
+      ],
+      "radius_px": 20.187,
+      "name": "circle",
+      "radius_mm": 6.45,
+      "diameter_mm": 12.9,
+      "label": "circle: r~6.5 mm"
     },
     {
-      "type": "measure",
-      "pts": [
-        [
-          829,
-          395
-        ],
-        [
-          744,
-          634
-        ]
+      "type": "circle",
+      "center": [
+        828.21,
+        394.75
       ],
-      "label": "~80.3 mm"
+      "edge": [
+        816.71,
+        410.55
+      ],
+      "radius_px": 19.542,
+      "name": "circle",
+      "radius_mm": 6.24,
+      "diameter_mm": 12.48,
+      "label": "circle: r~6.2 mm"
     },
     {
-      "type": "measure",
+      "type": "polygon",
       "pts": [
         [
-          866,
-          440
+          976.94,
+          742.25
         ],
         [
-          999,
-          592
+          976.4,
+          868.85
+        ],
+        [
+          1100.85,
+          869.93
+        ],
+        [
+          1100.85,
+          741.35
+        ],
+        [
+          1087.92,
+          741.71
+        ],
+        [
+          1089.35,
+          811.39
+        ],
+        [
+          989.15,
+          811.03
+        ],
+        [
+          988.43,
+          742.61
         ]
       ],
-      "label": "~63.9 mm"
+      "closed": true,
+      "name": "polygon",
+      "area_px": 8910.0,
+      "perimeter_px": 642.39,
+      "centroid_px": [
+        1038.99,
+        828.3
+      ],
+      "area_mm2": 909.0,
+      "perimeter_mm": 205.18,
+      "label": "polygon: ~909 sq mm"
     },
     {
-      "type": "measure",
+      "type": "polygon",
       "pts": [
         [
-          1146,
-          589
+          1100.64,
+          741.72
         ],
         [
-          1148,
-          879
+          1106.63,
+          739.5
+        ],
+        [
+          1106.66,
+          866.18
+        ],
+        [
+          1101.07,
+          870.01
         ]
       ],
-      "label": "~91.8 mm"
+      "closed": true,
+      "name": "polygon",
+      "area_px": 738.83,
+      "perimeter_px": 268.14,
+      "centroid_px": [
+        1103.74,
+        803.63
+      ],
+      "area_mm2": 75.38,
+      "perimeter_mm": 85.65,
+      "label": "polygon: ~75 sq mm"
     },
     {
-      "type": "measure",
+      "type": "polygon",
       "pts": [
         [
-          944,
-          870
+          976.41,
+          868.88
         ],
         [
-          1145,
-          872
+          970.01,
+          866.54
+        ],
+        [
+          970.16,
+          740.73
+        ],
+        [
+          976.87,
+          742.31
         ]
       ],
-      "label": "~63.6 mm"
+      "closed": true,
+      "name": "polygon",
+      "area_px": 827.77,
+      "perimeter_px": 266.09,
+      "centroid_px": [
+        973.37,
+        804.12
+      ],
+      "area_mm2": 84.45,
+      "perimeter_mm": 84.99,
+      "label": "polygon: ~84 sq mm"
     },
     {
-      "type": "measure",
-      "pts": [
-        [
-          969,
-          741
-        ],
-        [
-          971,
-          850
-        ]
+      "type": "circle",
+      "center": [
+        1039.88,
+        635.07
       ],
-      "label": "~34.5 mm"
+      "edge": [
+        1123.39,
+        600.5
+      ],
+      "radius_px": 90.383,
+      "name": "circle",
+      "radius_mm": 28.87,
+      "diameter_mm": 57.74,
+      "label": "circle: r~28.9 mm"
     },
     {
-      "type": "measure",
-      "pts": [
-        [
-          1014,
-          851
-        ],
-        [
-          1016,
-          870
-        ]
+      "type": "circle",
+      "center": [
+        832.82,
+        392.58
       ],
-      "label": "~6.0 mm"
+      "edge": [
+        742.67,
+        408.56
+      ],
+      "radius_px": 91.555,
+      "name": "circle",
+      "radius_mm": 29.24,
+      "diameter_mm": 58.49,
+      "label": "circle: r~29.2 mm"
     },
     {
-      "type": "measure",
-      "pts": [
-        [
-          944,
-          594
-        ],
-        [
-          1009,
-          537
-        ]
+      "type": "circle",
+      "center": [
+        723.53,
+        688.92
       ],
-      "label": "~27.4 mm"
+      "edge": [
+        682.32,
+        699.44
+      ],
+      "radius_px": 42.532,
+      "name": "circle",
+      "radius_mm": 13.58,
+      "diameter_mm": 27.17,
+      "label": "circle: r~13.6 mm"
     },
     {
-      "type": "measure",
-      "pts": [
-        [
-          745,
-          635
-        ],
-        [
-          736,
-          635
-        ]
+      "type": "circle",
+      "center": [
+        1038.8,
+        637.25
       ],
-      "label": "~2.8 mm"
+      "edge": [
+        1004.3,
+        663.21
+      ],
+      "radius_px": 43.176,
+      "name": "circle",
+      "radius_mm": 13.79,
+      "diameter_mm": 27.58,
+      "label": "circle: r~13.8 mm"
     },
     {
-      "type": "measure",
-      "pts": [
-        [
-          1040,
-          636
-        ],
-        [
-          1039,
-          680
-        ]
+      "type": "circle",
+      "center": [
+        828.39,
+        394.51
       ],
-      "label": "~13.9 mm"
+      "edge": [
+        785.58,
+        402.41
+      ],
+      "radius_px": 43.533,
+      "name": "circle",
+      "radius_mm": 13.9,
+      "diameter_mm": 27.81,
+      "label": "circle: r~13.9 mm"
     },
     {
-      "type": "measure",
+      "type": "polygon",
       "pts": [
         [
-          948,
-          649
+          1118.85,
+          590.56
         ],
         [
-          1038,
-          637
+          1132.32,
+          593.93
+        ],
+        [
+          1145.34,
+          592.13
+        ],
+        [
+          1147.36,
+          676.53
+        ],
+        [
+          1142.65,
+          672.05
+        ],
+        [
+          1134.34,
+          672.05
+        ],
+        [
+          1122.22,
+          674.29
+        ],
+        [
+          1128.51,
+          656.56
+        ],
+        [
+          1131.42,
+          640.39
+        ],
+        [
+          1130.08,
+          626.03
+        ],
+        [
+          1126.49,
+          611.44
+        ],
+        [
+          1123.79,
+          598.64
         ]
       ],
-      "label": "~28.7 mm"
+      "closed": true,
+      "name": "polygon",
+      "area_px": 1507.43,
+      "perimeter_px": 225.83,
+      "centroid_px": [
+        1136.67,
+        632.54
+      ],
+      "area_mm2": 153.79,
+      "perimeter_mm": 72.13,
+      "label": "polygon: ~154 sq mm"
     },
     {
-      "type": "measure",
+      "type": "polygon",
       "pts": [
         [
-          797,
-          364
+          1107.78,
+          868.86
         ],
         [
-          779,
-          352
+          1126.02,
+          866.9
+        ],
+        [
+          1132.75,
+          854.27
+        ],
+        [
+          1132.75,
+          816.96
+        ],
+        [
+          1131.63,
+          672.73
+        ],
+        [
+          1138.65,
+          672.17
+        ],
+        [
+          1143.42,
+          674.13
+        ],
+        [
+          1147.9,
+          678.34
+        ],
+        [
+          1145.38,
+          852.03
+        ],
+        [
+          1145.38,
+          866.34
+        ],
+        [
+          1139.77,
+          873.63
+        ],
+        [
+          1129.95,
+          878.97
+        ],
+        [
+          1111.71,
+          883.74
+        ],
+        [
+          1089.54,
+          885.7
+        ],
+        [
+          1062.61,
+          886.26
+        ],
+        [
+          1031.18,
+          887.66
+        ],
+        [
+          989.09,
+          886.26
+        ],
+        [
+          956.54,
+          881.49
+        ],
+        [
+          946.44,
+          877.0
+        ],
+        [
+          947.84,
+          863.53
+        ],
+        [
+          957.95,
+          868.02
+        ],
+        [
+          987.13,
+          872.51
+        ],
+        [
+          1026.41,
+          873.35
+        ],
+        [
+          1067.38,
+          874.2
+        ],
+        [
+          1104.41,
+          871.11
+        ],
+        [
+          1108.9,
+          869.43
         ]
       ],
-      "label": "~6.8 mm"
+      "closed": true,
+      "name": "polygon",
+      "area_px": 5373.43,
+      "perimeter_px": 804.12,
+      "centroid_px": [
+        1092.61,
+        820.41
+      ],
+      "area_mm2": 548.2,
+      "perimeter_mm": 256.84,
+      "label": "polygon: ~548 sq mm"
     }
   ],
-  "frame_t0036.20s.png": [
-    {
-      "type": "scale",
-      "pts": [
-        [
-          922,
-          929
-        ],
-        [
-          844,
-          929
-        ]
-      ],
-      "mm": 25.0,
-      "px": 78.0,
-      "px_per_mm": 3.12,
-      "label": "table hole pitch: 25 mm (3.12 px/mm)"
-    },
-    {
-      "type": "measure",
-      "pts": [
-        [
-          1036,
-          885
-        ],
-        [
-          1036,
-          942
-        ]
-      ],
-      "label": "~18.3 mm"
-    },
-    {
-      "type": "measure",
-      "pts": [
-        [
-          1006,
-          873
-        ],
-        [
-          1006,
-          889
-        ]
-      ],
-      "label": "~5.1 mm"
-    },
-    {
-      "type": "measure",
-      "pts": [
-        [
-          945,
-          871
-        ],
-        [
-          1137,
-          871
-        ]
-      ],
-      "label": "~61.5 mm"
-    },
-    {
-      "type": "measure",
-      "pts": [
-        [
-          1140,
-          871
-        ],
-        [
-          1145,
-          585
-        ]
-      ],
-      "label": "~91.7 mm"
-    },
-    {
-      "type": "measure",
-      "pts": [
-        [
-          968,
-          742
-        ],
-        [
-          971,
-          849
-        ]
-      ],
-      "label": "~34.3 mm"
-    },
-    {
-      "type": "measure",
-      "pts": [
-        [
-          996,
-          849
-        ],
-        [
-          996,
-          868
-        ]
-      ],
-      "label": "~6.1 mm"
-    },
-    {
-      "type": "measure",
-      "pts": [
-        [
-          982,
-          811
-        ],
-        [
-          1079,
-          812
-        ]
-      ],
-      "label": "~31.1 mm"
-    },
-    {
-      "type": "measure",
-      "pts": [
-        [
-          1080,
-          812
-        ],
-        [
-          1080,
-          744
-        ]
-      ],
-      "label": "~21.8 mm"
-    },
-    {
-      "type": "measure",
-      "pts": [
-        [
-          1081,
-          742
-        ],
-        [
-          1091,
-          742
-        ]
-      ],
-      "label": "~3.2 mm"
-    },
-    {
-      "type": "measure",
-      "pts": [
-        [
-          877,
-          207
-        ],
-        [
-          841,
-          187
-        ]
-      ],
-      "label": "~13.2 mm"
-    },
-    {
-      "type": "measure",
-      "pts": [
-        [
-          963,
-          240
-        ],
-        [
-          955,
-          255
-        ]
-      ],
-      "label": "~5.4 mm"
-    },
-    {
-      "type": "measure",
-      "pts": [
-        [
-          930,
-          233
-        ],
-        [
-          1104,
-          317
-        ]
-      ],
-      "label": "~61.9 mm"
-    },
-    {
-      "type": "measure",
-      "pts": [
-        [
-          1156,
-          348
-        ],
-        [
-          1184,
-          296
-        ]
-      ],
-      "label": "~18.9 mm"
-    },
-    {
-      "type": "measure",
-      "pts": [
-        [
-          1156,
-          346
-        ],
-        [
-          1244,
-          392
-        ]
-      ],
-      "label": "~31.8 mm"
-    },
-    {
-      "type": "box",
-      "rect": [
-        940,
-        557,
-        51,
-        40
-      ],
-      "label": "hex screw variant 1"
-    },
-    {
-      "type": "box",
-      "rect": [
-        1033,
-        605,
-        24,
-        31
-      ],
-      "label": "hex screw variant 2"
-    },
-    {
-      "type": "measure",
-      "pts": [
-        [
-          1042,
-          585
-        ],
-        [
-          1130,
-          398
-        ]
-      ],
-      "label": "~66.2 mm"
-    },
-    {
-      "type": "measure",
-      "pts": [
-        [
-          1289,
-          983
-        ],
-        [
-          629,
-          982
-        ]
-      ],
-      "label": "~211.5 mm"
-    },
-    {
-      "type": "measure",
-      "pts": [
-        [
-          697,
-          969
-        ],
-        [
-          730,
-          969
-        ]
-      ],
-      "label": "~10.6 mm"
-    },
-    {
-      "type": "measure",
-      "pts": [
-        [
-          921,
-          950
-        ],
-        [
-          841,
-          950
-        ]
-      ],
-      "label": "~25.6 mm"
-    }
-  ]
+  "frame_t0029.52s.png": [],
+  "frame_t0036.20s.png": []
 }
